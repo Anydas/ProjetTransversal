@@ -11,8 +11,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     </head>
-    <body>
-        
-        
+    <body><center>
+        <div class="container">
+            <img src="resources/Image/facebook.png" alt="Facebook" >
+            <img src="resources/Image/twiter.png" alt="Twiter" >
+            <img src="resources/Image/website.png" alt="Website" >
+        </div>
+        </center>
     </body>
 </html>
