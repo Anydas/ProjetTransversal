@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/")
 public class BonjourController {
-
+//ça crain !
     private String titre = "";
     private String contenu = "";
         
