@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class BonjourController {
 //Je vous encule ! 
-// Et j'assume le fait de vous enculer a sec avec des gravillons
+// Et j'assume le fait de vous enculer a sec avec des gravillon
+//3eme commit pour degouter valou
     private String titre = "";
     private String contenu = "";
         
