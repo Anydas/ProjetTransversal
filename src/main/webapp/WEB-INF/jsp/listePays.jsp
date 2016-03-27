@@ -14,6 +14,7 @@
         <title>Liste des pays</title>
     </head>
     <body>    
+        <div id="wrap">
          <br>
         <br>
         <div class="container">
@@ -36,5 +37,7 @@
             </tbody>
         </table>
         </div>
+    </div>
+         <jsp:include page="footer.jsp" ></jsp:include>
     </body>
 </html>

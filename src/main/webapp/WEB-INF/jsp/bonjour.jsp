@@ -18,8 +18,10 @@
     </head>
     <body>
              
-      
-         <jsp:include page="templateindex.jsp" ></jsp:include>        
+      <div id="wrap">
+         <jsp:include page="templateindex.jsp" ></jsp:include>  
+    </div>
+         <jsp:include page="footer.jsp" ></jsp:include>  
         
     </body>
 </html>

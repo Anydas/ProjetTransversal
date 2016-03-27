@@ -12,10 +12,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     </head>
     <body><center>
-        <div class="container">
-            <img src="resources/Image/facebook.png" alt="Facebook" >
-            <img src="resources/Image/twiter.png" alt="Twiter" >
+       <div id="footer">
+      <div class="container">
+            <img src="resources/Image/Facebook.png" alt="Facebook" >
+            <img src="resources/Image/Twitter.png" alt="Twiter" >
             <img src="resources/Image/website.png" alt="Website" >
+            </div>
         </div>
         </center>
     </body>

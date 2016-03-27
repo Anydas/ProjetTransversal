@@ -15,6 +15,7 @@
          <title>Comparer des Pays</title>
     </head>
     <body>
+        <div id="wrap">
         <br>
         <br>
         <div class="container">
@@ -57,5 +58,7 @@
         <input type="submit" class="btn btn-success" value="GO !">
         </form>
         </div>
+    </div>
+         <jsp:include page="footer.jsp" ></jsp:include>
     </body>
 </html>

@@ -1,4 +1,9 @@
-body { background-color:#FFFFFF; }
+html{
+	height: 100%;
+}
+body { background-color:#FFFFFF;
+ height: 100%;
+}
 
 .container-fluid {
 	background-color:#58ACFA;
@@ -25,3 +30,19 @@ body { background-color:#FFFFFF; }
 		color:white;
     background-color:#0B3861;
 	}
+
+	#wrap {
+	  min-height: 100%;
+	  height: auto;
+	  /* Negative indent footer by its height */
+	  margin: 0 auto -60px;
+	  /* Pad bottom by footer height */
+	  padding: 0 0 60px;
+	}
+	
+#footer{
+
+	background-color: #0B243B;
+	width: 100%;
+	height: 120px;
+}

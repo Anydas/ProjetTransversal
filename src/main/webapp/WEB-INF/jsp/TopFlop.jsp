@@ -23,7 +23,7 @@
     <body>
         <br>
         <br>
-   
+   <div id="wrap">
 <div class="container">
     <form action="TopPaysController" role="form">
         Choisir un critère
@@ -50,6 +50,9 @@
         <input type="submit" value="Pokemon Go." class="btn btn-success">
 
     </form> 
+    
 </div>
+   </div>
+         <jsp:include page="footer.jsp" ></jsp:include>
 </body>
 </html>

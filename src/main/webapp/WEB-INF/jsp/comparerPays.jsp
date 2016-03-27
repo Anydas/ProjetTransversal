@@ -14,6 +14,7 @@
         <title>Comparer des Pays</title>
     </head>
     <body>
+        <div id="wrap">
          <br>
         <br>
         <div class="container">
@@ -49,5 +50,7 @@
         <img src="histogramme?pays1=${pays1}&pays2=${pays2}&val1pays1=${val1et1}&val2pays1=${val1et2}&val1pays2=${val2et1}&val2pays2=${val2et2}&indicateur1=${indic1}&indicateur2=${indic2}" class="img-thumbnail"  >
 
     </div>
+    </div>
+         <jsp:include page="footer.jsp" ></jsp:include>
     </body>
 </html>
