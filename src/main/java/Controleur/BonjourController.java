@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class BonjourController {
 //Je vous encule ! 
+// Et j'assume le fait de vous enculer a sec avec des gravillons
     private String titre = "";
     private String contenu = "";
         
