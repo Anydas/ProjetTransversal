@@ -4,31 +4,56 @@
     Author     : valentin
 --%>
 
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <%@ page language="java" pageEncoding="UTF-8" contentType="text/html;charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        
-        <div class="container">
+
+    <div class="container">
         <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
- <div class="navbar-header">
-    
-     </div>
-     <ul class="nav navbar-nav">
-        <li> <a href="./">Index</a> </li>
-        <li> <a href="./menuComparer">Comparaison</a> </li>
-        <li> <a href="./menuSimilarite">Similarité</a> </li>        
-        <li> <a href="./listepays">Listes des pays</a> </li>
-        <li> <a href="./TopFlop">Top & Flop</a> </li>
-      </ul>
+            <div class="container-fluid">
+                <div class="navbar-header">
+
+                </div>
+                <ul class="nav navbar-nav">
+                        <c:if test="${!page.equals('index')}" >
+                        <li> <a href="./">Index</a> </li>
+                        </c:if>
+                        <c:if test="${page.equals('index')}" >
+                        <li class="active"> <a href="./">Index</a> </li>
+                        </c:if>
+                        <c:if test="${!page.equals('menuComparer')}" >
+                        <li> <a href="./menuComparer">Comparaison</a> </li>
+                        </c:if>
+                        <c:if test="${page.equals('menuComparer')}" >
+                        <li class="active"> <a href="./menuComparer">Comparaison</a> </li>
+                        </c:if>
+                        <c:if test="${!page.equals('similarite')}" >
+                        <li> <a href="./menuSimilarite">Similarité</a> </li>
+                        </c:if>
+                        <c:if test="${page.equals('similarite')}" >
+                        <li class="active"> <a href="./menuSimilarite">Similarité</a> </li>
+                        </c:if>
+                        <c:if test="${!page.equals('ListePa')}" >        
+                        <li> <a href="./listepays">Listes des pays</a> </li>
+                        </c:if>
+                         <c:if test="${page.equals('ListePa')}" >        
+                        <li class="active"> <a href="./listepays">Listes des pays</a> </li>
+                        </c:if>
+                        <c:if test="${!page.equals('Top')}" >
+                        <li> <a href="./TopFlop">Top & Flop</a> </li>
+                        </c:if>
+                         <c:if test="${page.equals('Top')}" >
+                        <li class="active"> <a href="./TopFlop">Top & Flop</a> </li>
+                        </c:if>
+                </ul>
+            </div>
+        </nav>
     </div>
-  </nav>
-        </div>
-  <br>
-  <br>
-    </head>
-  
+    <br>
+    <br>
+</head>
+
 </html>
