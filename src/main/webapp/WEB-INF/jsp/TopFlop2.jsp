@@ -34,6 +34,7 @@
 
                         <c:if test="${not empty Countries}">
                             <h1>Resultat du ${TopFlop}</h1>
+                            
                             <table class="table table-bordered table-striped table-condensed">
                                 <caption><h1>${TopFlop} en ${Date} <small>${Indicateur}</small></h1></caption>
                                 <thead>
@@ -63,7 +64,7 @@
                                 <select name = "Indicateur" id = "Indicateur" class="form-control" >
                                     <c:forEach  var="indic" items="${ListeIndicateur}">
                                         <c:choose>
-                                        <c:when test="${indic.getIndicatorName().equals(Indicateur)}">
+                                        <c:when test="${indic.getIndicatorName().equals(indicat)}">
                                             <OPTION selected=${indic.getIndicatorName()}><c:out value="${indic.getIndicatorName()}"/></option>
                                             </c:when>
 

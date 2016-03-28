@@ -113,6 +113,8 @@ public class TopPaysController {
         System.out.println("Indicateur : " + indicateur);
         System.out.println("Date : " + date);
         System.out.println("Top : " + top);
+        pmodel.addAttribute("indicat", indicateur);
+       
 
         // appelle la fonction qui me renvoie country et valeur pour l'indicateur donné 
         //
@@ -135,6 +137,7 @@ public class TopPaysController {
             System.out.println("Valeurs[" + i + "] : " + String.valueOf(top_pays_valeur[i][1]));
         }
         String[] part;
+       
         if (indicateur.contains("(")) {
             part = indicateur.split("\\(");
             String unite = "en";
@@ -164,6 +167,7 @@ public class TopPaysController {
         session.close();
         pmodel.addAttribute("ListeIndicateur", indic);
         pmodel.addAttribute("page", "Top");
+         
 
         return "TopFlop2";
 
