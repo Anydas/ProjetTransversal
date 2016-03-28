@@ -23,7 +23,7 @@
        
         <form action="comparer" role="form">
         <div class="form-group">
-            <p>Pays 1 :</p>
+            <p>Choisir pays 1 :</p>
         <SELECT name="pays1" id="pays1" class="form-control">
         <c:forEach var="pays" items="${listePays}">
         <OPTION><c:out value="${pays.getCountryName()}"/>
@@ -31,7 +31,7 @@
         </SELECT>
         </div>
         <div class="form-group">
-        <p>Pays 2 :</p>
+        <p>Choisir pays 2 :</p>
         <SELECT name="pays2" id="pays2" class="form-control">
         <c:forEach var="pays" items="${listePays}">
         <OPTION><c:out value="${pays.getCountryName()}"/>
@@ -39,7 +39,7 @@
         </SELECT>
         </div>
         <div class="form-group">
-        <p>Indicateur 1 :</p>
+        <p>Choisir indicateur 1 :</p>
         <SELECT name="indicateur1" id="indicateur1" class="form-control">
         <c:forEach var="indic" items="${listeIndicateurs}">
         <OPTION><c:out value="${indic.getIndicatorName()}"/>
@@ -47,7 +47,7 @@
         </SELECT>
         </div>
         <div class="form-group">
-        <p>Indicateur 2 :</p>
+        <p>Choisir indicateur 2 :</p>
         <SELECT name="indicateur2" id="indicateur2" class="form-control">
         <c:forEach var="indic" items="${listeIndicateurs}">
         <OPTION><c:out value="${indic.getIndicatorName()}"/>

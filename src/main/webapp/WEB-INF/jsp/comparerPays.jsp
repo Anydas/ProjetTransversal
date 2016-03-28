@@ -64,7 +64,7 @@
                     <div id="content_2" class="tab-pane fade">
                         <form action="comparer" role="form">
                             <div class="form-group">
-                                <p>Pays 1 :</p>
+                                <p>Choisir pays 1 :</p>
                                 <SELECT name="pays1" id="pays1" class="form-control" selected=${pays1}>
                                     
                                     <c:forEach var="pays" items="${listePays}">
@@ -83,7 +83,7 @@
                                 </SELECT>
                             </div>
                             <div class="form-group">
-                                <p>Pays 2 :</p>
+                                <p>Choisir pays 2 :</p>
                                 <SELECT name="pays2" id="pays2" class="form-control">
                                    
                                     <c:forEach var="pays" items="${listePays}">
@@ -100,7 +100,7 @@
                                 </SELECT>
                             </div>
                             <div class="form-group">
-                                <p>Indicateur 1 :</p>
+                                <p>Choisir indicateur 1 :</p>
                                 <SELECT name="indicateur1" id="indicateur1" class="form-control">
                                    
                                     <c:forEach var="indic" items="${listeIndicateurs}">
@@ -117,7 +117,7 @@
                                 </SELECT>
                             </div>
                             <div class="form-group">
-                                <p>Indicateur 2 :</p>
+                                <p>Choisir indicateur 2 :</p>
                                 <SELECT name="indicateur2" id="indicateur2" class="form-control">
                                     
                                     <c:forEach var="indic" items="${listeIndicateurs}">

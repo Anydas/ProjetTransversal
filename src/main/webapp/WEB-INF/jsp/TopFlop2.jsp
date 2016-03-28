@@ -56,7 +56,7 @@
                     </div>
                     <div id="content_2" class="tab-pane fade">
                         <form action="TopPaysController" role="form">
-                            Choisir un critère
+                            Choisir un indicateur :
                             <div class="form-group">
                                 <select name = "Indicateur" id = "Indicateur" class="form-control" >
                                     <c:forEach  var="indic" items="${ListeIndicateur}">
@@ -72,6 +72,7 @@
                                         </c:forEach>
                                 </select>
                             </div>
+                            Choisir une date :
                             <div class="form-group">
                                 <select name = "Date" id = "Date" class="form-control" >
                                     <c:forEach var="Dat" begin="1985" end="2015" >
@@ -87,6 +88,7 @@
                                         </c:forEach>
                                 </select>
                             </div>
+                            Choisir un top ou un flop :
                             <div class="form-group">
                                 <select name = "TopFlop" id = "TopFlop" class="form-control">
                                     <c:choose>

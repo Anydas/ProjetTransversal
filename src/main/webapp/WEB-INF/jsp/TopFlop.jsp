@@ -26,7 +26,7 @@
    <div id="wrap">
 <div class="container">
     <form action="TopPaysController" role="form">
-        Choisir un critère
+        Choisir un indicateur :
         <div class="form-group">
         <select name = "Indicateur" id = "Indicateur" class="form-control" >
             <c:forEach  var="Indicateur" items="${ListeIndicateur}">
@@ -34,6 +34,7 @@
                 </c:forEach>
         </select>
         </div>
+        Choisir une date :
         <div class="form-group">
         <select name = "Date" id = "Date" class="form-control" >
             <c:forEach var="Date" begin="1985" end="2015" >
@@ -41,13 +42,14 @@
                 </c:forEach>
         </select>
         </div>
+        Choisir un top ou un flop :
         <div class="form-group">
         <select name = "TopFlop" id = "TopFlop" class="form-control">
             <OPTION>Top
             <OPTION>Flop
         </select>
         </div>
-        <input type="submit" value="Pokemon Go." class="btn btn-success">
+        <input type="submit" value="Go" class="btn btn-success">
 
     </form> 
     

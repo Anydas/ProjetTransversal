@@ -80,10 +80,10 @@
                     <div id="content_2" class="tab-pane fade">
 
                         <form action="similarite" role="form">
-                            Choisir les pays et les critères         
+                                    
 
                             <div class="form-group">
-                                <p>Pays 1 :</p>
+                                <p>Choisir pays 1 :</p>
                                 <SELECT name="pays1" id="pays1" class="form-control">
 
                                     <c:forEach var="pays" items="${listePays}">
@@ -101,7 +101,7 @@
                                 </SELECT>
                             </div>
                             <div class="form-group">
-                                <p>Pays 2 :</p>
+                                <p>Choisir pays 2 :</p>
                                 <SELECT name="pays2" id="pays2" class="form-control">
 
                                     <c:forEach var="pays" items="${listePays}">
@@ -117,7 +117,7 @@
                                         </c:forEach>
                                 </SELECT>
                             </div>
-                            <p>Pays 3 :</p>
+                            <p>Choisir pays 3 :</p>
                             <SELECT name="pays3" id="pays3" class="form-control">
 
                                 <c:forEach var="pays" items="${listePays}">
@@ -133,7 +133,7 @@
                                     </c:forEach>
                             </SELECT>
                             <div class="form-group">
-                                <p>Indicateur 1 :</p>
+                                <p>Choisir indicateur 1 :</p>
                                 <SELECT name="indicateur1" id="indicateur1" class="form-control">
 
                                     <c:forEach var="indic" items="${listeIndicateurs}">
@@ -150,7 +150,7 @@
                                 </SELECT>
                             </div>
                             <div class="form-group">
-                                <p>Indicateur 2 :</p>
+                                <p>Choisir indicateur 2 :</p>
                                 <SELECT name="indicateur2" id="indicateur2" class="form-control">
 
                                     <c:forEach var="indic" items="${listeIndicateurs}">
@@ -166,7 +166,7 @@
                                         </c:forEach>
                                 </SELECT>
                             </div>
-                            <p>Indicateur 3 :</p>
+                            <p>Choisir indicateur 3 :</p>
                             <SELECT name="indicateur3" id="indicateur3" class="form-control">
 
                                 <c:forEach var="indic" items="${listeIndicateurs}">
@@ -181,7 +181,7 @@
                                         </c:choose>
                                     </c:forEach>
                             </SELECT>
-                            <p>Période : </p>
+                            <p>Choisir période : </p>
                             <div class="form-group">
                                 <select name = "Periode" id = "Periode" class="form-control" >
                                     <c:choose>
