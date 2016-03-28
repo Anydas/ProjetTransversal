@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Ut
  */
 //@RequestMapping(method = RequestMethod.GET)
-
 @Controller
 public class TopPaysController {
 
@@ -46,64 +45,56 @@ public class TopPaysController {
         return "TopFlop";
     }
 
-    public static String IndicatorName_vers_IndicatorCode(String indicateurname, Session session)
-    {
+    public static String IndicatorName_vers_IndicatorCode(String indicateurname, Session session) {
         List results = null;
-        String hql = "SELECT E.IndicatorCode FROM Indicateur E WHERE E.IndicatorName='"+indicateurname+"'";
+        String hql = "SELECT E.IndicatorCode FROM Indicateur E WHERE E.IndicatorName='" + indicateurname + "'";
         Query query = session.createQuery(hql);
         results = query.list();
-        String indicateurcode = (String)results.get(0);
+        String indicateurcode = (String) results.get(0);
         return indicateurcode;
     }
-    
-    
+
     public static Object[][] Top_pays_indicateur(String indicateur, String date, String top) {
-        
-           if(top.equals("top"))
-        {
-            top="asc";
+
+        if (top.equals("top")) {
+            top = "asc";
+        } else {
+            top = "desc";
         }
-        else
-        {
-            top ="desc";
-        }
-        
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();  
-        Session session = sessionFactory.openSession();  
+
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
         session.beginTransaction();
-        indicateur = IndicatorName_vers_IndicatorCode(indicateur,session);
-        
+        indicateur = IndicatorName_vers_IndicatorCode(indicateur, session);
+
         //selection des noms de pays
-        String hql = "SELECT E.CountryName FROM Country E, IndicateurValeur Z WHERE Z.IndicatorCode='"+indicateur+"' AND E.CountryCode=Z.CountryCode AND Date=" +date+" order by Z.Valeur " +top;
+        String hql = "SELECT E.CountryName FROM Country E, IndicateurValeur Z WHERE Z.IndicatorCode='" + indicateur + "' AND E.CountryCode=Z.CountryCode AND Date=" + date + " order by Z.Valeur " + top;
         System.out.println(hql);
         Query query = session.createQuery(hql);
-        
+
         List results = null;
         results = query.list();
-        
+
         //selection des valeurs associées
-        String hql_valeur = "SELECT Z.Valeur FROM Country E, IndicateurValeur Z WHERE Z.IndicatorCode='"+ indicateur +"' AND E.CountryCode=Z.CountryCode AND Date=" +date+" order by Z.Valeur "+top;
+        String hql_valeur = "SELECT Z.Valeur FROM Country E, IndicateurValeur Z WHERE Z.IndicatorCode='" + indicateur + "' AND E.CountryCode=Z.CountryCode AND Date=" + date + " order by Z.Valeur " + top;
         System.out.println(hql_valeur);
         Query query_valeur = session.createQuery(hql_valeur);
-        
+
         List results_valeur = null;
         results_valeur = query_valeur.list();
-        
+
         Object[][] top_pays_valeur = new Object[results.size()][2];
-        
+
         // remplissage du tableau 
-        for(int i=0;i<results.size();i++)
-        {
+        for (int i = 0; i < results.size(); i++) {
             top_pays_valeur[i][0] = results.get(i);
             top_pays_valeur[i][1] = results_valeur.get(i);
         }
-                     
+
         //affichage console        
-        for(int j=0;j<top_pays_valeur.length;j++)
-        {
-            for(int k=0;k<top_pays_valeur[0].length;k++)
-            {
-                System.out.print(top_pays_valeur[j][k]+"   ");
+        for (int j = 0; j < top_pays_valeur.length; j++) {
+            for (int k = 0; k < top_pays_valeur[0].length; k++) {
+                System.out.print(top_pays_valeur[j][k] + "   ");
             }
             System.out.println();
         }
@@ -111,8 +102,7 @@ public class TopPaysController {
         session.close();
         return top_pays_valeur;
     }
-    
- 
+
     @RequestMapping(value = "/TopPaysController", method = RequestMethod.GET)
     public String Top_pays_indicateur(HttpServletRequest request, final ModelMap pmodel) {
 
@@ -120,44 +110,52 @@ public class TopPaysController {
         String indicateur = request.getParameter("Indicateur");
         String date = request.getParameter("Date");
         String top = request.getParameter("TopFlop");
-        System.out.println("Indicateur : " +indicateur);
-        System.out.println("Date : " +date);
-        System.out.println("Top : " +top);
-        
-       // appelle la fonction qui me renvoie country et valeur pour l'indicateur donné 
-       //
-       Object[][] top_pays_valeur = Top_pays_indicateur(indicateur, date, top);
-       
-       final List<String> noms = new ArrayList<String>();
-       final List <String>valeurs = new ArrayList<String>();
-       List<Country> countries = new ArrayList<Country>();
-       
-        System.out.println("taille du tableau d'objet:"+top_pays_valeur.length);
-       // remise des données dans deux listes différentes               
-        for(int i=0;i<top_pays_valeur.length;i++)
-        {   Country country = new Country();
-        
-            
-            country.setCountryName((String)top_pays_valeur[i][0]);
-            System.out.println("Nom["+i+"] : " +(String)top_pays_valeur[i][0]);
-         
-            
+        System.out.println("Indicateur : " + indicateur);
+        System.out.println("Date : " + date);
+        System.out.println("Top : " + top);
+
+        // appelle la fonction qui me renvoie country et valeur pour l'indicateur donné 
+        //
+        Object[][] top_pays_valeur = Top_pays_indicateur(indicateur, date, top);
+
+        final List<String> noms = new ArrayList<String>();
+        final List<String> valeurs = new ArrayList<String>();
+        List<Country> countries = new ArrayList<Country>();
+
+        System.out.println("taille du tableau d'objet:" + top_pays_valeur.length);
+        // remise des données dans deux listes différentes               
+        for (int i = 0; i < top_pays_valeur.length; i++) {
+            Country country = new Country();
+
+            country.setCountryName((String) top_pays_valeur[i][0]);
+            System.out.println("Nom[" + i + "] : " + (String) top_pays_valeur[i][0]);
+
             country.setValeurIndicateurCheat(String.valueOf(top_pays_valeur[i][1]));
             countries.add(country);
-            System.out.println("Valeurs["+i+"] : " +String.valueOf(top_pays_valeur[i][1]));
+            System.out.println("Valeurs[" + i + "] : " + String.valueOf(top_pays_valeur[i][1]));
         }
-      
-     
-       if(top.equals("Flop"))
+        String[] part;
+        if (indicateur.contains("(")) {
+            part = indicateur.split("\\(");
+            String unite = "en";
+            unite = unite + " " + part[1].replace(")", "");
+            pmodel.addAttribute("UniteeValue", unite);
+            pmodel.addAttribute("Indicateur", part[0]);
+        } else {
+            pmodel.addAttribute("Indicateur", indicateur);
+        }
+
+        if (top.equals("Flop")) {
             Collections.reverse(countries);
-       pmodel.addAttribute("TopFlop",top);
-       pmodel.addAttribute("Indicateur", indicateur);
-       pmodel.addAttribute("Date", date);
-       pmodel.addAttribute("Countries", countries);
-        String unite= indicateur.substring(indicateur.indexOf("("));
-       pmodel.addAttribute("UniteeValue",unite);
+        }
+        pmodel.addAttribute("TopFlop", top);
        
-       SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        pmodel.addAttribute("Date", date);
+        pmodel.addAttribute("Countries", countries);
+        String unite = indicateur.substring(indicateur.indexOf("("));
+        
+
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
@@ -166,12 +164,9 @@ public class TopPaysController {
         session.close();
         pmodel.addAttribute("ListeIndicateur", indic);
         pmodel.addAttribute("page", "Top");
-       
-       return "TopFlop2";
 
-        }
-    
-   
+        return "TopFlop2";
 
     }
 
+}
