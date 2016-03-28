@@ -54,8 +54,55 @@
                             </table>
                         </c:if>
                     </div>
-
                     <div id="content_2" class="tab-pane fade">
+                        <form action="TopPaysController" role="form">
+                            Choisir un critère
+                            <div class="form-group">
+                                <select name = "Indicateur" id = "Indicateur" class="form-control" >
+                                    <c:forEach  var="indic" items="${ListeIndicateur}">
+                                        <c:choose>
+                                        <c:when test="${indic.getIndicatorName().equals(Indicateur)}">
+                                            <OPTION selected=${indic.getIndicatorName()}><c:out value="${indic.getIndicatorName()}"/></option>
+                                            </c:when>
+
+                                        <c:otherwise>
+                                            <OPTION><c:out value="${indic.getIndicatorName()}"/>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        </c:forEach>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select name = "Date" id = "Date" class="form-control" >
+                                    <c:forEach var="Dat" begin="1985" end="2015" >
+                                         <c:choose>
+                                        <c:when test="${Dat == Date}">
+                                            <OPTION selected=${Dat}><c:out value="${Dat}"/></option>                                           
+                                            </c:when>
+                                            <c:otherwise>
+                                             <OPTION> <c:out value="${Dat}"/> 
+                                            </c:otherwise>
+                                        </c:choose>
+                                 
+                                        </c:forEach>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select name = "TopFlop" id = "TopFlop" class="form-control">
+                                    <c:choose>
+                                        <c:when test="${TopFlop.equals('Top')}">
+                                            <OPTION selected=Top>Top</option>
+                                            <OPTION>Flop</option>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <OPTION>Top</option>
+                                            <OPTION selected=Flop>Flop</option>
+                                            </c:otherwise>
+                                        </c:choose>
+                                </select>
+                            </div>
+                            <input type="submit" value="Go" class="btn btn-success">
+                        </form> 
                     </div>
                 </div>
             </div>
