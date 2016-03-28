@@ -5,6 +5,7 @@
  */
 package Controleur;
 
+import Modele.Country;
 import Modele.HibernateUtil;
 import Modele.Indicateur;
 import java.util.ArrayList;
@@ -126,19 +127,25 @@ public class TopPaysController {
        
        final List<String> noms = new ArrayList<String>();
        final List <String>valeurs = new ArrayList<String>();
+       List<Country> countries = new ArrayList<Country>();
        
-       
+        System.out.println("taille du tableau d'objet:"+top_pays_valeur.length);
        // remise des données dans deux listes différentes               
         for(int i=0;i<top_pays_valeur.length;i++)
-        {   noms.add((String)top_pays_valeur[i][0]);
+        {   Country country = new Country();
+        
+            
+            country.setCountryName((String)top_pays_valeur[i][0]);
             System.out.println("Nom["+i+"] : " +(String)top_pays_valeur[i][0]);
-            String wait = String.valueOf(top_pays_valeur[i][1]);
-            valeurs.add(wait);
+         
+            
+            country.setValeurIndicateurCheat(String.valueOf(top_pays_valeur[i][1]));
+            countries.add(country);
             System.out.println("Valeurs["+i+"] : " +String.valueOf(top_pays_valeur[i][1]));
         }
+
        
-       pmodel.addAttribute("Noms", noms);
-       pmodel.addAttribute("Valeurs", valeurs);
+       pmodel.addAttribute("Countries", countries);
        return "TopFlop2";
 
         }
