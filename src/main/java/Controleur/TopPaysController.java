@@ -9,6 +9,8 @@ import Modele.Country;
 import Modele.HibernateUtil;
 import Modele.Indicateur;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.hibernate.Query;
@@ -143,9 +145,13 @@ public class TopPaysController {
             countries.add(country);
             System.out.println("Valeurs["+i+"] : " +String.valueOf(top_pays_valeur[i][1]));
         }
-
-       
+       if(top.equals("Flop"))
+            Collections.reverse(countries);
+       pmodel.addAttribute("TopFlop",top);
+       pmodel.addAttribute("Indicateur", indicateur);
+       pmodel.addAttribute("Date", date);
        pmodel.addAttribute("Countries", countries);
+       
        return "TopFlop2";
 
         }
