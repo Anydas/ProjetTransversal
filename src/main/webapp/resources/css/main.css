@@ -39,10 +39,17 @@ body { background-color:#FFFFFF;
 	  /* Pad bottom by footer height */
 	  padding: 0 0 60px;
 	}
-	
+
 #footer{
 
 	background-color: #0B243B;
 	width: 100%;
 	height: 120px;
+}
+
+#footer-sousdiv {
+	margin-top: 50vh;
+	  transform: translateY(+50%);
+
+
 }
