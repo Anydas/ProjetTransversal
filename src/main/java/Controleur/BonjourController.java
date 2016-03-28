@@ -18,7 +18,7 @@ public class BonjourController {
     @RequestMapping(method = RequestMethod.GET)
     public String afficherBonjour(final ModelMap pModel) {
         
-       
+       pModel.addAttribute("page", "index");
         return "bonjour";
     }
 }

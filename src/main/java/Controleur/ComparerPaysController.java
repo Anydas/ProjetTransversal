@@ -35,6 +35,7 @@ public class ComparerPaysController {
        
         pModel.addAttribute("listePays", listePays);
         pModel.addAttribute("listeIndicateurs", listeIndicateurs);
+        pModel.addAttribute("page", "menuComparer");
        
         session.close();
        
@@ -110,6 +111,7 @@ public class ComparerPaysController {
         }
        
         pModel.addAttribute("errorCode", erreur);
+        pModel.addAttribute("page", "menuComparer");
         session.close();
        
         return "comparerPays";

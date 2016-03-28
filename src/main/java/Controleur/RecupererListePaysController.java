@@ -24,6 +24,7 @@ public class RecupererListePaysController {
         List<Country> listePays = session.createQuery("from Country").list();
        
         pModel.addAttribute("listePays", listePays);
+        pModel.addAttribute("page", "ListePa");
         session.close();
         
         return "listePays";

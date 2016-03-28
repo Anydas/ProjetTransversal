@@ -38,6 +38,7 @@ public class SimilariteController {
         
         pModel.addAttribute("listePays", listePays);
         pModel.addAttribute("listeIndicateurs", listeIndicateurs);
+        pModel.addAttribute("page", "similarite");
         
         session.close();
                        
@@ -295,7 +296,8 @@ public class SimilariteController {
         pModel.addAttribute("listeIndicateurs", listeIndicateurs);
         
         session.close();
-       pModel.addAttribute("tableau result",result);      
+       pModel.addAttribute("tableau result",result); 
+       pModel.addAttribute("page", "similarite");
     return "similarite";
     }
     

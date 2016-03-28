@@ -41,6 +41,7 @@ public class TopPaysController {
         final List<Indicateur> indicateur = session.createQuery("from Indicateur").list();
         session.close();
         pModel.addAttribute("ListeIndicateur", indicateur);
+        pModel.addAttribute("page", "Top");
 
         return "TopFlop";
     }
@@ -164,6 +165,7 @@ public class TopPaysController {
         List<Indicateur> indic = session.createQuery("from Indicateur").list();
         session.close();
         pmodel.addAttribute("ListeIndicateur", indic);
+        pmodel.addAttribute("page", "Top");
        
        return "TopFlop2";
 

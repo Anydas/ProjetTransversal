@@ -52,6 +52,7 @@ public class FicheInfoPaysController {
             results = query.list();
             Country InfoPays = (Country)results.get(0);
             pmodel.addAttribute("InfoPays", InfoPays);
+            pmodel.addAttribute("page", "ListePa");
             return "FicheInfoPays";
     }
 }
