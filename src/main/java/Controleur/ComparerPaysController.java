@@ -33,8 +33,8 @@ public class ComparerPaysController {
         Session session = sessionFactory.openSession();  
         session.beginTransaction();
        
-        List<Country> listePays = session.createQuery("FROM Country E").list();
-        List<Country> listeIndicateurs = session.createQuery("FROM Indicateur E").list();
+        List<Country> listePays = session.createQuery("FROM Country order by CountryName").list();
+        List<Country> listeIndicateurs = session.createQuery("FROM Indicateur order by IndicatorName").list();
        
         pModel.addAttribute("listePays", listePays);
         pModel.addAttribute("listeIndicateurs", listeIndicateurs);
@@ -69,6 +69,7 @@ public class ComparerPaysController {
         for (int i = 0 ; i < nbPays ; i++) {
             
             String cName = request.getParameter("pays"+(i+1));
+             pModel.addAttribute("pays"+(i+1), cName);
             //On créer un pays à partir seulement de son nom et on récupère le reste des infos pour les besoins
             //de la vue
             Country c = new Country(cName,
@@ -92,6 +93,7 @@ public class ComparerPaysController {
         for (int i = 0 ; i < nbIndic ; i++) {
             
             String iName = request.getParameter("indicateur"+(i+1));
+            pModel.addAttribute("indic"+(i+1), iName);
             
             Indicateur indic = new Indicateur((String) session.createQuery("SELECT E.IndicatorCode FROM Indicateur E WHERE E.IndicatorName='"+iName+"'").list().get(0),
                                               iName,
@@ -138,8 +140,13 @@ public class ComparerPaysController {
             }
         }
         //On envoi le tout au pModel
-        pModel.addAttribute("Valeurs", listeValeurs);
+        List<Country> listePay = session.createQuery("FROM Country order by CountryName").list();
+        List<Country> listeIndicateur = session.createQuery("FROM Indicateur order by IndicatorName").list();
        
+        pModel.addAttribute("listePays", listePay);
+        pModel.addAttribute("listeIndicateurs", listeIndicateur);
+        pModel.addAttribute("Valeurs", listeValeurs);
+        pModel.addAttribute("page", "menuComparer");
         pModel.addAttribute("errorCode", erreur);
         session.close();
        

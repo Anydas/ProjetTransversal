@@ -17,44 +17,29 @@
             <title>Comparer des Pays</title>
         </head>
         <body>
-                
+
             <br>
             <br>
             <div class="container">
-                
-                   <c:forEach var="Valeur" items="${Valeurs}">
 
-                        <p>${Valeur.getCountryCode()}</p>                
-                                         <p>${Valeur.getIndicatorCode()}</p>   
-                                         <p>${Valeur.getValeur()}</p>
-                                         <p>${Valeur.getDate()}</p> 
-                                        
-                                         
-                                            
-                                         
-                                  
-                                       
-                                        </c:forEach>  
-
-                
-                
-                
-                
-                
                 <div class="tabbed_area">
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#content_1">Resultat</a></li>
                         <li><a data-toggle="tab" href="#content_2">Recherche</a></li>
+                        <li><a data-toggle="tab" href="#content_3">Tableau pays 1, indicateur 1</a></li>
+                        <li><a data-toggle="tab" href="#content_4">Tableau pays 1, indicateur 2</a></li>
+                        <li><a data-toggle="tab" href="#content_5">Tableau pays 2, indicateur 1</a></li>
+                        <li><a data-toggle="tab" href="#content_6">Tableau pays 2, indicateur 2</a></li>
                     </ul>
                     <div class="tab-content">
                         <div id="content_1" class="tab-pane fade in active">
                             <center><h1>Resultat de la comparaison</h1></center>
                             <ul>
-                            <li>Nombre de Pays : ${nbPays} |  Nombre d'indicateurs : ${nbIndic}</li>
-                            <li>Pays 1 : ${pays1}  Code : ${pays1Code}</li>
-                            <li>Pays 2 : ${pays2}  Code : ${pays2Code}</li>
-                            <li>Indicateur1 : ${indic1}  Code : ${indic1Code}</li>
-                            <li>Indicateur2 : ${indic2}  Code : ${indic2Code}</li>
+                                <li>Nombre de Pays : ${nbPays} |  Nombre d'indicateurs : ${nbIndic}</li>
+                            <li>Pays 1 : ${pays1} </li>
+                            <li>Pays 2 : ${pays2}  </li>
+                            <li>Indicateur1 : ${indic1}  </li>
+                            <li>Indicateur2 : ${indic2} </li>
                             <li>Erreur : ${errorCode}</li>
                         </ul>
                         <table class="table table-bordered table-striped table-condensed">
@@ -82,75 +67,75 @@
 
                     </div>
                     <div id="content_2" class="tab-pane fade">
-                         <center><h1>Menu de la comparaison</h1></center>
+                        <center><h1>Menu de la comparaison</h1></center>
                         <form action="comparer" role="form">
                             <div class="form-group">
                                 <p>Choisir pays 1 :</p>
                                 <SELECT name="pays1" id="pays1" class="form-control" selected=${pays1}>
-                                    
+
                                     <c:forEach var="pays" items="${listePays}">
 
                                         <c:choose>
                                             <c:when test="${pays.getCountryName().equals(pays1)}">
-                                              <OPTION selected=${pays.getCountryName()}><c:out value="${pays.getCountryName()}"/></option>
-                                            </c:when>
-                                         
+                                                <OPTION selected=${pays.getCountryName()}><c:out value="${pays.getCountryName()}"/></option>
+                                                </c:when>
+
                                             <c:otherwise>
-                                              <OPTION><c:out value="${pays.getCountryName()}"/></option>
-                                            </c:otherwise>
-                                        </c:choose>
-                                       
-                                        </c:forEach>                                       
+                                                <OPTION><c:out value="${pays.getCountryName()}"/></option>
+                                                </c:otherwise>
+                                            </c:choose>
+
+                                    </c:forEach>                                       
                                 </SELECT>
                             </div>
                             <div class="form-group">
                                 <p>Choisir pays 2 :</p>
                                 <SELECT name="pays2" id="pays2" class="form-control">
-                                   
+
                                     <c:forEach var="pays" items="${listePays}">
-                                          <c:choose>
+                                        <c:choose>
                                             <c:when test="${pays.getCountryName().equals(pays2)}">
                                                 <OPTION selected=${pays.getCountryName()}><c:out value="${pays.getCountryName()}"/></option>
-                                            </c:when>
-                                         
+                                                </c:when>
+
                                             <c:otherwise>
-                                              <OPTION><c:out value="${pays.getCountryName()}"/></option>
-                                            </c:otherwise>
-                                        </c:choose>
+                                                <OPTION><c:out value="${pays.getCountryName()}"/></option>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </c:forEach>
                                 </SELECT>
                             </div>
                             <div class="form-group">
                                 <p>Choisir indicateur 1 :</p>
                                 <SELECT name="indicateur1" id="indicateur1" class="form-control">
-                                   
+
                                     <c:forEach var="indic" items="${listeIndicateurs}">
-                                         <c:choose>
+                                        <c:choose>
                                             <c:when test="${indic.getIndicatorName().equals(indic1)}">
                                                 <OPTION selected=${indic.getIndicatorName()}><c:out value="${indic.getIndicatorName()}"/></option>
-                                            </c:when>
-                                         
+                                                </c:when>
+
                                             <c:otherwise>
-                                              <OPTION><c:out value="${indic.getIndicatorName()}"/></option>
-                                            </c:otherwise>
-                                        </c:choose>
+                                                <OPTION><c:out value="${indic.getIndicatorName()}"/></option>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </c:forEach>
                                 </SELECT>
                             </div>
                             <div class="form-group">
                                 <p>Choisir indicateur 2 :</p>
                                 <SELECT name="indicateur2" id="indicateur2" class="form-control">
-                                    
+
                                     <c:forEach var="indic" items="${listeIndicateurs}">
-                                       <c:choose>
+                                        <c:choose>
                                             <c:when test="${indic.getIndicatorName().equals(indic2)}">
-                                              <OPTION selected=${indic.getIndicatorName()}><c:out value="${indic.getIndicatorName()}"/></option>
-                                            </c:when>
-                                         
+                                                <OPTION selected=${indic.getIndicatorName()}><c:out value="${indic.getIndicatorName()}"/></option>
+                                                </c:when>
+
                                             <c:otherwise>
-                                              <OPTION><c:out value="${indic.getIndicatorName()}"/></option>
-                                            </c:otherwise>
-                                        </c:choose>
+                                                <OPTION><c:out value="${indic.getIndicatorName()}"/></option>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </c:forEach>
                                 </SELECT>
                             </div>
@@ -158,6 +143,113 @@
                             <input type="submit" class="btn btn-success" value="GO !">
                         </form>
 
+                    </div>
+                    <div id="content_3" class="tab-pane fade">
+                        <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Pays</th>
+                                    <th>Indicateur</th>
+                                    <th>Valeur</th>
+                                    <th>Année</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="Valeur" items="${Valeurs}">
+                                    <tr>
+                                        <c:if test="${Valeur.getCountryCode().equals(pays1)}">
+                                             <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">
+                                            <td><c:out value="${Valeur.getCountryCode()}"/></td>
+                                            <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
+                                            <td><c:out value="${Valeur.getValeur()}"/></td>
+                                            <td><c:out value="${Valeur.getDate()}"/></td>
+                                        </c:if>
+                                        </c:if>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                        <br>
+
+
+                    </div>
+                    <div id="content_4" class="tab-pane fade">
+                        <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Pays</th>
+                                    <th>Indicateur</th>
+                                    <th>Valeur</th>
+                                    <th>Année</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="Valeur" items="${Valeurs}">
+                                    <tr>
+                                        <c:if test="${Valeur.getCountryCode().equals(pays1)}">
+                                             <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">
+                                            <td><c:out value="${Valeur.getCountryCode()}"/></td>
+                                            <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
+                                            <td><c:out value="${Valeur.getValeur()}"/></td>
+                                            <td><c:out value="${Valeur.getDate()}"/></td>
+                                             </c:if>
+                                        </c:if>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="content_5" class="tab-pane fade">
+                        <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Pays</th>
+                                    <th>Indicateur</th>
+                                    <th>Valeur</th>
+                                    <th>Année</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="Valeur" items="${Valeurs}">
+                                    <tr>
+                                        <c:if test="${Valeur.getCountryCode().equals(pays2)}">
+                                             <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">
+                                            <td><c:out value="${Valeur.getCountryCode()}"/></td>
+                                            <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
+                                            <td><c:out value="${Valeur.getValeur()}"/></td>
+                                            <td><c:out value="${Valeur.getDate()}"/></td>
+                                        </c:if>
+                                        </c:if>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="content_6" class="tab-pane fade">
+                        <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Pays</th>
+                                    <th>Indicateur</th>
+                                    <th>Valeur</th>
+                                    <th>Année</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="Valeur" items="${Valeurs}">
+                                    <tr>
+                                        <c:if test="${Valeur.getCountryCode().equals(pays2)}">
+                                             <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">
+                                            <td><c:out value="${Valeur.getCountryCode()}"/></td>
+                                            <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
+                                            <td><c:out value="${Valeur.getValeur()}"/></td>
+                                            <td><c:out value="${Valeur.getDate()}"/></td>
+                                        </c:if>
+                                        </c:if>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

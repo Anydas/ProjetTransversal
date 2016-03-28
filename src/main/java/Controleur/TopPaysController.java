@@ -37,7 +37,7 @@ public class TopPaysController {
         session.beginTransaction();
 
         // renvoie la liste des indicateurs possibles
-        final List<Indicateur> indicateur = session.createQuery("from Indicateur").list();
+        final List<Indicateur> indicateur = session.createQuery("from Indicateur order by IndicatorName").list();
         session.close();
         pModel.addAttribute("ListeIndicateur", indicateur);
         pModel.addAttribute("page", "Top");
@@ -163,7 +163,7 @@ public class TopPaysController {
         session.beginTransaction();
 
         // renvoie la liste des indicateurs possibles
-        List<Indicateur> indic = session.createQuery("from Indicateur").list();
+        List<Indicateur> indic = session.createQuery("from Indicateur order by IndicatorName").list();
         session.close();
         pmodel.addAttribute("ListeIndicateur", indic);
         pmodel.addAttribute("page", "Top");

@@ -21,7 +21,7 @@ public class RecupererListePaysController {
         Session session = sessionFactory.openSession();  
         session.beginTransaction();
         
-        List<Country> listePays = session.createQuery("from Country").list();
+        List<Country> listePays = session.createQuery("from Country order by CountryName").list();
        
         pModel.addAttribute("listePays", listePays);
         pModel.addAttribute("page", "ListePa");
