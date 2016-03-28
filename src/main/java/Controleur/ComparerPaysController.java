@@ -42,14 +42,19 @@ public class ComparerPaysController {
     }
    
     @RequestMapping(value="/comparer", method = RequestMethod.GET)
-    public String comparerPays(HttpServletRequest request, ModelMap pModel) {
-       
+    public String comparerPays(HttpServletRequest request, ModelMap pModel) {   
+      
         String erreur = "Aucune erreur";
        
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();  
         Session session = sessionFactory.openSession();  
         session.beginTransaction();
+        
+        List<Country> listePays = session.createQuery("FROM Country E").list();
+        List<Country> listeIndicateurs = session.createQuery("FROM Indicateur E").list();
        
+        pModel.addAttribute("listePays", listePays);
+        pModel.addAttribute("listeIndicateurs", listeIndicateurs);
         //Implementer le nombre d'indic et pays dynamiquement + tard
         //Constante de 2 pour tester
         int nbPays = 2;
