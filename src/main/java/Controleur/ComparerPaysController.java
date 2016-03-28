@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.jfree.chart.ChartFactory;
@@ -58,7 +59,7 @@ public class ComparerPaysController {
         String paysCode[] = new String[nbPays];
         String indicateurs[] = new String[nbIndic];
         String indicateursCode[] = new String[nbIndic];
-        double valeurs[][] = new double[nbPays][nbIndic];
+        double valeurs[][][] = new double[nbPays][nbIndic][100];
        
         //Insertion des données basiques
         pModel.addAttribute("nbPays", nbPays);
@@ -81,15 +82,25 @@ public class ComparerPaysController {
         }
        
         //Insertion des valeurs
+        int date[][][] = new int[nbPays][nbIndic][100];
         for (int i = 0 ; i < nbPays ; i++) {
             for (int j = 0 ; j < nbIndic ; j++) {
-                if (session.createQuery("SELECT E.Valeur FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode[i]+"') AND (E.IndicatorCode='"+indicateursCode[j]+"')").list().isEmpty()) {
-                    valeurs[i][j] = 0.0;
+                Query req = session.createQuery("SELECT E.Valeur FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode[i]+"') AND (E.IndicatorCode='"+indicateursCode[j]+"')");
+                if (req.list().isEmpty()) {
+                    //valeurs[i][j][0] = 0.0;
                     erreur = "Attention, certains indicateurs n'ont pas de valeurs";
                 } else {
-                    valeurs[i][j] = (double) session.createQuery("SELECT E.Valeur FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode[i]+"') AND (E.IndicatorCode='"+indicateursCode[j]+"')").list().get(0);
+                    //Insertion si la liste est non vide
+                    int nbDates = req.list().size();
+                    for (int k = 0 ; k < nbDates ; k++) {
+                        valeurs[i][j][k] = (double) req.list().get(k);
+                        pModel.addAttribute("val"+(i+1)+"et"+(j+1)+"et"+(k+1), valeurs[i][j][k]);
+                        
+                        Query reqD = session.createQuery("SELECT E.Date FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode[i]+"') AND (E.IndicatorCode='"+indicateursCode[j]+"')");
+                        date[i][j][k] = (int) reqD.list().get(k);
+                        pModel.addAttribute("date"+(i+1)+"et"+(j+1)+"et"+(k+1), date[i][j][k]);
+                    }
                 }
-                pModel.addAttribute("val"+(i+1)+"et"+(j+1), valeurs[i][j]);
             }
         }
        

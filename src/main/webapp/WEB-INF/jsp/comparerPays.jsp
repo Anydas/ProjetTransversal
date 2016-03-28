@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" isELIgnored="false"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" isELIgnored="false"
+         pageEncoding="ISO-8859-1" contentType="text/html; charset=UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,6 +25,7 @@
 	<li>Pays 2 : ${pays2}  Code : ${pays2Code}</li>
         <li>Indicateur1 : ${indic1}  Code : ${indic1Code}</li>
         <li>Indicateur2 : ${indic2}  Code : ${indic2Code}</li>
+        <li>Erreur : ${errorCode}</li>
         </ul>
         <table class="table table-bordered table-striped table-condensed">
             <thead>
@@ -37,13 +38,13 @@
             <tbody>
                 <tr>
                     <td>${indic1}</td>
-                    <td>${val1et1}</td>
-                    <td>${val2et1}</td>
+                    <td>${val1et1et1} en ${date1et1et1}</td>
+                    <td>${val2et1et1} en ${date2et1et1}</td>
                 </tr>
                 <tr>
                     <td>${indic2}</td>
-                    <td>${val1et2}</td>
-                    <td>${val2et2}</td>
+                    <td>${val1et2et1} en ${date1et2et1}</td>
+                    <td>${val2et2et1} en ${date2et2et1}</td>
                 </tr>
             </tbody>
         </table>
