@@ -62,19 +62,53 @@
         <div class="col-lg-4">
           <img class="img-circle" src="resources/Image/sante.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Santé</h2>
-          <p>Ceci est un texte</p>
+          <p>Les personnes pauvres n’ont pas les moyens de se sortir de la 
+              pauvreté. Accroître leur productivité en investissant dans
+              leur éducation et dans leur santé est souvent la meilleure manière
+              d’améliorer leur bien-être. Le secteur public est le principal 
+              fournisseur de services de soins de santé dans les pays en développement.
+              Pour réduire les inégalités, bon nombre de pays mettent l’accent sur
+              les soins de santé primaires, notamment l’immunisation, la 
+              fourniture d’assainissement, l’accès à de l’eau potable et des
+              initiatives pour une maternité sans risques. Les données de cette 
+              page portent sur les systèmes de santé, la qualité et la 
+              couverture de la prévention des maladies, la santé reproductive,
+              la nutrition et la dynamique des populations. Les données 
+              sont fournies par la Division de la population des Nations Unies,
+              l’Organisation mondiale de la Santé, le Fonds des Nations Unies pour
+              l’enfance, le Programme commun des Nations Unies sur le VIH/SIDA 
+              et diverses autres sources.</p>
           
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="resources/Image/education.gif" alt="Generic placeholder image" width="140" height="140">
           <h2>Education</h2>
-          <p>Ceci est un texte</p>
+          <p>L’éducation est l’un des instruments les plus puissants qui existent
+              pour réduire la pauvreté et les inégalités et elle pose les bases 
+              d’une croissance économique soutenue. La Banque mondiale compile 
+              les données sur les facteurs de production, la participation,
+              l’efficience et les résultats dans le domaine de l’éducation.
+              Les données sur l’éducation sont compilées par l’Institut de 
+              statistiques de l’Organisation des Nations Unies pour l’éducation,
+              la science et la culture (UNESCO) et proviennent de réponses 
+              officielles à des sondages et de rapports fournis par les autorités
+              en matière d’éducation de chaque pays.</p>
           
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="resources/Image/technologie.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Technologie</h2>
-          <p>Ceci est un texte</p>
+          <p>L’innovation technologique, souvent stimulée par les pouvoirs 
+             publics, est l’élément moteur de la croissance industrielle et aide
+             à améliorer les niveaux de vie. Les données présentées ici visent à
+             mettre en lumière l’infrastructure technologique des pays : recherche
+             et développement, articles de journaux scientifiques et techniques, 
+             exportations de haute technologie, redevances et droits de licence, 
+             et brevets et marques déposées. Les sources proviennent notamment de
+             l’Institut de statistique de l’UNESCO, du conseil américain National 
+             Science Board, de la Division de statistique de l’ONU, du Fonds 
+             Monétaire international et de l'Organisation mondiale de la 
+             propriété intellectuelle.</p>
           
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
