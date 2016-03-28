@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -42,6 +43,18 @@ public class Country {
     @Column(name = "Population", nullable = false, length = 10)
     private int Population;
 
+    public String getValeurIndicateurCheat() {
+        return valeurIndicateurCheat;
+    }
+
+    public void setValeurIndicateurCheat(String valeurIndicateurCheat) {
+        this.valeurIndicateurCheat = valeurIndicateurCheat;
+    }
+
+
+    
+    @Transient
+    private String valeurIndicateurCheat;
     public Country() {
     }
 

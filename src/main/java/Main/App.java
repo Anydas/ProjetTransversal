@@ -20,10 +20,14 @@ import Modele.Country;
 import Modele.Indicateur;
 import Modele.IndicateurValeur;
 import Modele.HibernateUtil; 
+import java.util.List;
+import org.hibernate.Criteria;
 
 public class App 
 {   
      public static void main(String[] args) {
-        SimilariteController test = new SimilariteController();
+        
+         
+
     }
 }
