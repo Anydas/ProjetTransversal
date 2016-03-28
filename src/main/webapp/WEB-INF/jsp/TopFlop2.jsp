@@ -28,7 +28,7 @@
                     <thead>
                         <tr>
                             <th>Pays</th>
-                            <th>Valeurs</th>
+                            <th>Valeurs en ${UniteeValue}</th>
 
                         </tr>
                     </thead>

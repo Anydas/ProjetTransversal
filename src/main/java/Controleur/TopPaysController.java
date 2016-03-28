@@ -145,12 +145,16 @@ public class TopPaysController {
             countries.add(country);
             System.out.println("Valeurs["+i+"] : " +String.valueOf(top_pays_valeur[i][1]));
         }
+      
+     
        if(top.equals("Flop"))
             Collections.reverse(countries);
        pmodel.addAttribute("TopFlop",top);
        pmodel.addAttribute("Indicateur", indicateur);
        pmodel.addAttribute("Date", date);
        pmodel.addAttribute("Countries", countries);
+        String unite= indicateur.substring(indicateur.indexOf("("));
+       pmodel.addAttribute("UniteeValue",unite);
        
        return "TopFlop2";
 
