@@ -181,16 +181,25 @@
                                         </c:choose>
                                     </c:forEach>
                             </SELECT>
-                            <p>Période :</p>
+                            <p>Période : </p>
                             <div class="form-group">
-                                <select name = "Periode" id = "Date" class="form-control" >
-                                    <OPTION>1995-2005
-                                    <OPTION>2005-2015 
+                                <select name = "Periode" id = "Periode" class="form-control" >
+                                    <c:choose>
+                                        <c:when test="${Periode=='1995-2005'}">
+                                            <OPTION selected=1995-2005>1995-2005</option>
+                                            <OPTION>2005-2015</option>
+                                            </c:when>
+                                            <c:otherwise>
+                                            <OPTION>1995-2005</option>
+                                            <OPTION selected=2005-2015>2005-2015</option>
+                                            </c:otherwise>
+                                        </c:choose>
                                 </select>
                             </div>
                             <input type="submit" value="Lancer la recherche" class="btn btn-success">
                         </form> 
-
+                        
+                          
                     </div>
                 </div>
             </div>

@@ -266,6 +266,9 @@ public class SimilariteController {
     }
     
     String period = request.getParameter("Periode");
+    
+     pModel.addAttribute("Periode",period); 
+    
     String[] periodCut = period.split("-");
     String Datedebut = periodCut[0];
     String Datefin = periodCut[1] ;
