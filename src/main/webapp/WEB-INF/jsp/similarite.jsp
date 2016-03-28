@@ -37,6 +37,7 @@
                     </ul>
                     <div class="tab-content">
                         <div id="content_1" class="tab-pane fade in active">
+                             <center><h1>Resultat de la similarité</h1></center>
                             <table class="table table-bordered table-striped table-condensed">
                                 L'indice de Gover est calculé par apport à ces trois indices :
                                 Plus l'indice est grand, plus les pays se ressemblent !
@@ -78,9 +79,9 @@
                     </div>
 
                     <div id="content_2" class="tab-pane fade">
-
+                        <center><h1>Menu de la similarité</h1></center>
                         <form action="similarite" role="form">
-                                    
+
 
                             <div class="form-group">
                                 <p>Choisir pays 1 :</p>
@@ -198,8 +199,8 @@
                             </div>
                             <input type="submit" value="Lancer la recherche" class="btn btn-success">
                         </form> 
-                        
-                          
+
+
                     </div>
                 </div>
             </div>

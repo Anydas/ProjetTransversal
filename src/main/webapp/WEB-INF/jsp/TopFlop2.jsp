@@ -33,6 +33,7 @@
                         </c:if>
 
                         <c:if test="${not empty Countries}">
+                            <h1>Resultat du ${TopFlop}</h1>
                             <table class="table table-bordered table-striped table-condensed">
                                 <caption><h1>${TopFlop} en ${Date} <small>${Indicateur}</small></h1></caption>
                                 <thead>
@@ -55,6 +56,7 @@
                         </c:if>
                     </div>
                     <div id="content_2" class="tab-pane fade">
+                        <caption><h1>Menu Top & Flop</h1></caption>
                         <form action="TopPaysController" role="form">
                             Choisir un indicateur :
                             <div class="form-group">

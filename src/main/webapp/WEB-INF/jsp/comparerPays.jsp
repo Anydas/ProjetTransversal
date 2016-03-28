@@ -62,6 +62,7 @@
 
                     </div>
                     <div id="content_2" class="tab-pane fade">
+                         <center><h1>Menu de la comparaison</h1></center>
                         <form action="comparer" role="form">
                             <div class="form-group">
                                 <p>Choisir pays 1 :</p>

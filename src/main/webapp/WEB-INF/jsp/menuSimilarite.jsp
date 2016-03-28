@@ -27,6 +27,7 @@
         <title>Similarité</title>
         <br>
         <br>
+         <center><h1>Menu de la similarité</h1></center>
         <form action="similarite" role="form">
                    
 
