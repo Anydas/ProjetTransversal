@@ -5,6 +5,7 @@
  */
 package Controleur;
 
+import Modele.Country;
 import Modele.HibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,23 +22,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author Maxence
  */
+@Controller
 public class SimilariteController {
     
-    //Comment la vue sera faite ??? Pour voir comment/quoi récupérer comme données
-    
-   /* @RequestMapping(value = "Controller", method = RequestMethod.GET)
-    public String Top_pays_indicateur(HttpServletRequest request, final ModelMap pmodel) {
-        //Récupération des paramètres
-        String pays = request.getParameter("Pays");
-        String indicateurs = request.getParameter("Indicateurs");
-        String plage_date = request.getParameter("Plage_date"); 
-        int index = plage_date.indexOf("-");
-        String Date_debut = plage_date.substring(0,index);
-        String Date_fin = plage_date.substring(index);
+@RequestMapping(value="/menuSimilarite", method = RequestMethod.GET)
+    public String menuSimilarite(ModelMap pModel) {
+        //envoie les pays et les indicateurs 
         
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();  
+        Session session = sessionFactory.openSession();  
+        session.beginTransaction();
         
+        List<Country> listePays = session.createQuery("FROM Country E").list();
+        List<Country> listeIndicateurs = session.createQuery("FROM Indicateur E").list();
         
-    }*/
+        pModel.addAttribute("listePays", listePays);
+        pModel.addAttribute("listeIndicateurs", listeIndicateurs);
+        
+        session.close();
+                       
+        return "menuSimilarite";
+    }
     
     // Renvoie un tableau avec les valeurs de similarité ! DITES SI VOUS VOULEZ UN TABLEAU avec les pays également
     public static  double[][] similarite(List country, List indicator, String Datedebut, String Datefin)
@@ -105,8 +111,7 @@ public class SimilariteController {
         String countrycode = (String)results.get(0);
         return countrycode;
     }
-    
-    
+        
     public static  double[][] moyenne_tableau  (List<double[][]> tableau)
     {
         //Il faut que les deux tableau aient la même taille
@@ -238,4 +243,77 @@ public class SimilariteController {
         }
         return similarite_valeur;
     }
+    
+     @RequestMapping(value="/similarite", method = RequestMethod.GET)
+    public String comparerPays(HttpServletRequest request, ModelMap pModel) {
+    
+    
+    List<String> pays = new ArrayList<String>();
+    List<String> indicateurs = new ArrayList<String>();
+    
+    for (int i = 0 ; i < 3 ; i++) {
+        System.out.println(request.getParameter("pays"+(i+1)));
+            pays.add(request.getParameter("pays"+(i+1)));
+            pModel.addAttribute("pays"+(i+1),request.getParameter("pays"+(i+1)) );
+            // ajout des pays dans le PMODEL
+    }
+    for (int i = 0 ; i < 3 ; i++) {
+        System.out.println(request.getParameter("indicateur"+(i+1)));
+            indicateurs.add(request.getParameter("indicateur"+(i+1)));
+            pModel.addAttribute("indic"+(i+1),request.getParameter("indicateur"+(i+1)) );
+            // ajout des pays dans le PMODEL
+    }
+    
+    String period = request.getParameter("Periode");
+    String[] periodCut = period.split("-");
+    String Datedebut = periodCut[0];
+    String Datefin = periodCut[1] ;
+  
+         System.out.println("Debut -"+Datedebut);
+         System.out.println("Fin -"+Datefin);
+         
+       Object[][] result = Tableau_similarite (pays, indicateurs,Datedebut,Datefin);  
+       
+       
+         for (int i = 1; i < result.length; i++) {
+             for (int j = 1; j < result[i].length; j++) {
+                 pModel.addAttribute("val" + (j) + "et" + (i), result[i][j]);
+             }
+         }
+       
+       pModel.addAttribute("tableau result",result);      
+    return "similarite";
+    }
+    
+    
+   public static Object[][] Tableau_similarite(List country, List indicator, String Datedebut, String Datefin)
+    {
+        double[][]tab_sim_old = similarite(country,indicator,Datedebut,Datefin);
+        Object[][] tab_sim_new= new Object[tab_sim_old.length+1][tab_sim_old.length+1];
+        tab_sim_new[0][0] = "";
+        //Remplissage des entêtes du tableau
+        for(int i=1;i<tab_sim_new.length;i++)
+        {
+            tab_sim_new[0][i] = country.get(i-1);
+            tab_sim_new[i][0] = country.get(i-1);
+        }
+        //Remplissage du nouveau tableau avec les valeurs
+        for(int i=1;i<tab_sim_new.length;i++)
+        {
+        for(int j=1;j<tab_sim_new[i].length;j++)
+        {
+            if(tab_sim_old[i-1][j-1]==0)
+            {
+                 tab_sim_new[i][j] = "-";
+            }
+            else
+            {
+                 tab_sim_new[i][j] = tab_sim_old[i-1][j-1];
+            }
+        }
+        
+        }
+        return tab_sim_new;
+    }
+    
 }
