@@ -21,7 +21,8 @@
       <div id="wrap">
          <jsp:include page="templateindex.jsp" ></jsp:include>  
     </div>
+     </body>
          <jsp:include page="footer.jsp" ></jsp:include>  
         
-    </body>
+   
 </html>
