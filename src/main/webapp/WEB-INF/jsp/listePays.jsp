@@ -18,7 +18,7 @@
          <br>
         <br>
         <div class="container">
-            <h1>Liste des pays</h1>
+            <center><h1>Liste des pays</h1></center>
         <table class="table table-bordered table-striped table-condensed">
             <thead>
                 <tr>

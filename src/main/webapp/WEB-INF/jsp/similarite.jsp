@@ -42,10 +42,18 @@
                                 L'indice de Gover est calculé par apport à ces trois indices :
                                 Plus l'indice est grand, plus les pays se ressemblent !
 
-                                <br>
-                                Indicateur 1 : ${indic1}<br>
-                            Indicateur 2 : ${indic2}<br>
-                            Indicateur 3 : ${indic3}
+                                
+                                <ul>
+                            <li>Pays 1 : ${pays1}  </li>
+                            <li>Pays 2 : ${pays2}  </li>
+                            <li>Pays 3 : ${pays3}  </li>
+                            <li>Indicateur1 : ${indic1}  </li>
+                            <li>Indicateur2 : ${indic2}  </li>
+                            <li>Indicateur3 : ${indic3}  </li>
+                            </ul>
+                            <br>
+                              
+                            
                             <thead>
                                 <tr>
                                     <th></th>

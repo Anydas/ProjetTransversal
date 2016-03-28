@@ -30,7 +30,7 @@
                         <div id="content_1" class="tab-pane fade in active">
                             <center><h1>Resultat de la comparaison</h1></center>
                             <ul>
-                                <li>Nombre de Pays : ${nbPays} |  Nombre d'indicateurs : ${nbIndic}</li>
+                            <li>Nombre de Pays : ${nbPays} |  Nombre d'indicateurs : ${nbIndic}</li>
                             <li>Pays 1 : ${pays1}  Code : ${pays1Code}</li>
                             <li>Pays 2 : ${pays2}  Code : ${pays2Code}</li>
                             <li>Indicateur1 : ${indic1}  Code : ${indic1Code}</li>
