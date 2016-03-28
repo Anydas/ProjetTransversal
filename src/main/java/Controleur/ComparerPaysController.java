@@ -107,17 +107,18 @@ public class ComparerPaysController {
         pModel.addAttribute("Indicateurs", listeIndicateurs);
         
         //Insertion des valeurs, là c'est un poil plus compliqué
-        List<IndicateurValeur> listeValeurs = new ArrayList();
+        List<IndicateurValeur> listeValeurs1 = new ArrayList();
         //Double for : Chaque Valeurs est liée à un code indicateur ET un code pays
-        for (int i = 0 ; i < nbPays ; i++) {
+        List<IndicateurValeur> listeValeurs2= new ArrayList();
+       
             for (int j = 0 ; j < nbIndic ; j++) {
                 //On récupère les deux codes
-                String paysCode = listePays.get(i).getCountryCode();
+                String paysCode = listePays.get(0).getCountryCode();
                 String indicCode = listeIndicateurs.get(j).getIndicatorCode();
-                
+               
                 //On récupère la ou les valeurs liées aux codes ci dessus
                 Query req = session.createQuery("SELECT E.Valeur FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')");
-                
+               
                 //On s'assure qu'il y est au moin une valeur à afficher sinon erreur exception sur la vue
                 if (req.list().isEmpty()) {
                     erreur = "Attention, certains indicateurs n'ont pas de valeurs";
@@ -126,31 +127,75 @@ public class ComparerPaysController {
                     int nbVal = req.list().size();
                     //On crée un objet IndicateurValeur par valeur
                     for (int k = 0 ; k < nbVal ; k++) {
-                        
+                       
                         IndicateurValeur val = new IndicateurValeur((int) session.createQuery("SELECT E.Id FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')").list().get(k),
                                                                    (String) session.createQuery("SELECT E.CountryName FROM Country E WHERE E.CountryCode='"+paysCode+"'").list().get(0),
                                                                     (String) session.createQuery("SELECT E.IndicatorName  FROM Indicateur E WHERE E.IndicatorCode='"+indicCode+"'").list().get(0),
                                                                     (int) session.createQuery("SELECT E.Date FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')").list().get(k),
                                                                     (double) session.createQuery("SELECT E.Valeur FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')").list().get(k),
                                                                     (int) session.createQuery("SELECT E.Nbrefoisrecherche FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')").list().get(k));
-                        
-                        listeValeurs.add(val);
+                       
+                        listeValeurs1.add(val);
                     }
                 }
             }
-        }
-        int compteur = 0;
-            List<IndicateurValeur> listeValeurstriee = new ArrayList();
-            while(!listeValeurs.isEmpty()){
-                for (int i =0; i <listeValeurs.size();i++){
-                    for(int j=0;j<listeValeurs.size();j++){
-                        if(listeValeurs.get(i).getDate()>listeValeurs.get(j).getDate()) {
+            for (int j = 0 ; j < nbIndic ; j++) {
+                //On récupère les deux codes
+                String paysCode = listePays.get(1).getCountryCode();
+                String indicCode = listeIndicateurs.get(j).getIndicatorCode();
+               
+                //On récupère la ou les valeurs liées aux codes ci dessus
+                Query req = session.createQuery("SELECT E.Valeur FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')");
+               
+                //On s'assure qu'il y est au moin une valeur à afficher sinon erreur exception sur la vue
+                if (req.list().isEmpty()) {
+                    erreur = "Attention, certains indicateurs n'ont pas de valeurs";
+                } else {
+                    //Si il y a au moin une valeur liée aux deux codes :
+                    int nbVal = req.list().size();
+                    //On crée un objet IndicateurValeur par valeur
+                    for (int k = 0 ; k < nbVal ; k++) {
+                       
+                        IndicateurValeur val = new IndicateurValeur((int) session.createQuery("SELECT E.Id FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')").list().get(k),
+                                                                   (String) session.createQuery("SELECT E.CountryName FROM Country E WHERE E.CountryCode='"+paysCode+"'").list().get(0),
+                                                                    (String) session.createQuery("SELECT E.IndicatorName  FROM Indicateur E WHERE E.IndicatorCode='"+indicCode+"'").list().get(0),
+                                                                    (int) session.createQuery("SELECT E.Date FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')").list().get(k),
+                                                                    (double) session.createQuery("SELECT E.Valeur FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')").list().get(k),
+                                                                    (int) session.createQuery("SELECT E.Nbrefoisrecherche FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')").list().get(k));
+                       
+                        listeValeurs2.add(val);
+                    }
+                }
+            }
+            int compteur = 0;
+            List<IndicateurValeur> listeValeurs2triee = new ArrayList();
+            while(!listeValeurs2.isEmpty()){
+                for (int i =0; i <listeValeurs2.size();i++){
+                    for(int j=0;j<listeValeurs2.size();j++){
+                        if(listeValeurs2.get(i).getDate()>listeValeurs2.get(j).getDate()) {
                             compteur++;
                         }
                     }
                     if(compteur==0){
-                        listeValeurstriee.add(listeValeurs.get(i));
-                        listeValeurs.remove(i);
+                        listeValeurs2triee.add(listeValeurs2.get(i));
+                        listeValeurs2.remove(i);
+                    }
+                    compteur=0;
+                }
+            }
+            
+        compteur = 0;
+            List<IndicateurValeur> listeValeurstriee = new ArrayList();
+            while(!listeValeurs1.isEmpty()){
+                for (int i =0; i <listeValeurs1.size();i++){
+                    for(int j=0;j<listeValeurs1.size();j++){
+                        if(listeValeurs1.get(i).getDate()>listeValeurs1.get(j).getDate()) {
+                            compteur++;
+                        }
+                    }
+                    if(compteur==0){
+                        listeValeurstriee.add(listeValeurs1.get(i));
+                        listeValeurs1.remove(i);
                     }
                     compteur=0;
                 }
@@ -159,6 +204,9 @@ public class ComparerPaysController {
         List<Country> listePay = session.createQuery("FROM Country order by CountryName").list();
         List<Country> listeIndicateur = session.createQuery("FROM Indicateur order by IndicatorName").list();
        
+        
+        pModel.addAttribute("ListeValeurs1",listeValeurstriee );
+        pModel.addAttribute("ListeValeurs2", listeValeurs2triee);
         pModel.addAttribute("listePays", listePay);
         pModel.addAttribute("listeIndicateurs", listeIndicateur);
         pModel.addAttribute("Valeurs", listeValeurstriee);

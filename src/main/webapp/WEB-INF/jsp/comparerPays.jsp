@@ -24,7 +24,7 @@
         var data = google.visualization.arrayToDataTable([
  
           ['Année', '${Valeur.getIndicatorCode()}'],
-          <c:forEach var="Valeur" items="${Valeurs2}">
+          <c:forEach var="Valeur" items="${ListeValeurs1}">
           [${Valeur.getDate()},  ${Valeur.getValeur()}],
           </c:forEach>  
  
