@@ -20,12 +20,12 @@
         <link href="${mainCSS}" rel="stylesheet" /> 
         <jsp:include page="Menu.jsp" ></jsp:include>  
         
-        <title>JSP Page</title>
+        <title>Similarité</title>
     </head>
     <body>
          <div id="wrap">
          <div class="container">
-        <h1>Hello World!</h1>
+       
         
         
         <table class="table table-bordered table-striped table-condensed">
@@ -68,6 +68,7 @@
         </table>
     </div>
                      </div>
+                    </body>
          <jsp:include page="footer.jsp" ></jsp:include>
-    </body>
+    
 </html>
