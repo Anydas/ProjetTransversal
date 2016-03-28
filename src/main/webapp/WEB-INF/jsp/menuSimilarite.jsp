@@ -46,17 +46,12 @@
                         </c:forEach>
                 </SELECT>
             </div>
-
             <p>Pays 3 :</p>
             <SELECT name="pays3" id="pays3" class="form-control">
                 <c:forEach var="pays" items="${listePays}">
                     <OPTION><c:out value="${pays.getCountryName()}"/>
                     </c:forEach>
             </SELECT>
-              
-
-
-
             <div class="form-group">
                 <p>Indicateur 1 :</p>
                 <SELECT name="indicateur1" id="indicateur1" class="form-control">
@@ -66,7 +61,6 @@
                 </SELECT>
             </div>
             <div class="form-group">
-
                 <p>Indicateur 2 :</p>
                 <SELECT name="indicateur2" id="indicateur2" class="form-control">
                     <c:forEach var="indic" items="${listeIndicateurs}">
@@ -74,15 +68,12 @@
                         </c:forEach>
                 </SELECT>
             </div>
-
             <p>Indicateur 3 :</p>
             <SELECT name="indicateur3" id="indicateur3" class="form-control">
                 <c:forEach var="indic" items="${listeIndicateurs}">
                     <OPTION><c:out value="${indic.getIndicatorName()}"/>
                     </c:forEach>
             </SELECT>
-            
-
             <p>Période :</p>
             <div class="form-group">
                 <select name = "Periode" id = "Date" class="form-control" >
@@ -91,7 +82,6 @@
                 </select>
             </div>
             <input type="submit" value="Lancer la recherche" class="btn btn-success">
-
         </form> 
             </div>
                   </div>

@@ -51,6 +51,7 @@ public class SimilariteController {
       SessionFactory sessionFactory = HibernateUtil.getSessionFactory();  
       Session session = sessionFactory.openSession();  
       session.beginTransaction();
+      
       List<double[][]> valeur_similarite = new ArrayList<double[][]>();
       country = ListCountryName_vers_CountryCode(country, session);
       indicator =ListIndicatorName_vers_IndicatorCode(indicator,session);
@@ -280,7 +281,17 @@ public class SimilariteController {
                  pModel.addAttribute("val" + (j) + "et" + (i), result[i][j]);
              }
          }
-       
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();  
+        Session session = sessionFactory.openSession();  
+        session.beginTransaction();
+        
+        List<Country> listePays = session.createQuery("FROM Country E").list();
+        List<Country> listeIndicateurs = session.createQuery("FROM Indicateur E").list();
+        
+        pModel.addAttribute("listePays", listePays);
+        pModel.addAttribute("listeIndicateurs", listeIndicateurs);
+        
+        session.close();
        pModel.addAttribute("tableau result",result);      
     return "similarite";
     }
