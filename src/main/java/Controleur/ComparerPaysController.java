@@ -139,13 +139,29 @@ public class ComparerPaysController {
                 }
             }
         }
+        int compteur = 0;
+            List<IndicateurValeur> listeValeurstriee = new ArrayList();
+            while(!listeValeurs.isEmpty()){
+                for (int i =0; i <listeValeurs.size();i++){
+                    for(int j=0;j<listeValeurs.size();j++){
+                        if(listeValeurs.get(i).getDate()>listeValeurs.get(j).getDate()) {
+                            compteur++;
+                        }
+                    }
+                    if(compteur==0){
+                        listeValeurstriee.add(listeValeurs.get(i));
+                        listeValeurs.remove(i);
+                    }
+                    compteur=0;
+                }
+            }
         //On envoi le tout au pModel
         List<Country> listePay = session.createQuery("FROM Country order by CountryName").list();
         List<Country> listeIndicateur = session.createQuery("FROM Indicateur order by IndicatorName").list();
        
         pModel.addAttribute("listePays", listePay);
         pModel.addAttribute("listeIndicateurs", listeIndicateur);
-        pModel.addAttribute("Valeurs", listeValeurs);
+        pModel.addAttribute("Valeurs", listeValeurstriee);
         pModel.addAttribute("page", "menuComparer");
         pModel.addAttribute("errorCode", erreur);
         session.close();

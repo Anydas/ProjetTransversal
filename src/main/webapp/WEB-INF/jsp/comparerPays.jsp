@@ -15,6 +15,33 @@
         <jsp:include page="Menu.jsp" ></jsp:include>
 
             <title>Comparer des Pays</title>
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+ 
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+ 
+          ['Année', '${Valeur.getIndicatorCode()}'],
+          <c:forEach var="Valeur" items="${Valeurs2}">
+          [${Valeur.getDate()},  ${Valeur.getValeur()}],
+          </c:forEach>  
+ 
+        ]);
+ 
+ 
+        var options = {
+          title: '${Valeur.getIndicatorCode()}',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+ 
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+ 
+        chart.draw(data, options);
+      }
+    </script>
         </head>
         <body>
 
@@ -42,30 +69,10 @@
                             <li>Indicateur2 : ${indic2} </li>
                             <li>Erreur : ${errorCode}</li>
                         </ul>
-                        <table class="table table-bordered table-striped table-condensed">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>${pays1}</th>
-                                    <th>${pays2}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>${indic1}</td>
-                                    <td>${val1et1et1} en ${date1et1et1}</td>
-                                    <td>${val2et1et1} en ${date2et1et1}</td>
-                                </tr>
-                                <tr>
-                                    <td>${indic2}</td>
-                                    <td>${val1et2et1} en ${date1et2et1}</td>
-                                    <td>${val2et2et1} en ${date2et2et1}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <img src="histogramme?pays1=${pays1}&pays2=${pays2}&val1pays1=${val1et1}&val2pays1=${val1et2}&val1pays2=${val2et1}&val2pays2=${val2et2}&indicateur1=${indic1}&indicateur2=${indic2}" class="img-thumbnail"  >
-
-                    </div>
+                       
+                            <div id="curve_chart" style="width: 900px; height: 500px">
+                            </div>
+                        </div>
                     <div id="content_2" class="tab-pane fade">
                         <center><h1>Menu de la comparaison</h1></center>
                         <form action="comparer" role="form">
@@ -254,6 +261,8 @@
                 </div>
             </div>
         </div>
+           
+                                
 
     </body>
 
