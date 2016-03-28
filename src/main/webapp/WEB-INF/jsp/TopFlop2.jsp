@@ -11,39 +11,56 @@
         <spring:url value="/resources/css/main.css" var="mainCSS" />           
         <link href="${bootCSS}" rel="stylesheet" />
         <link href="${mainCSS}" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <jsp:include page="Menu.jsp" ></jsp:include>  
             <title>Comparer des Pays</title>
         </head>
         <body>
             <br><br>
             <div class="container">
-            <c:if test="${empty Countries}">
-                 <div class="alert alert-warning" role="alert"><h3>Oops, c'est embarassant, il semblerait qu'il n'y ait pas de valeur en ${Date} pour l'indicateur : ${Indicateur}  </h3></div> 
-                
-            </c:if>
-            
-            <c:if test="${not empty Countries}">
-                <table class="table table-bordered table-striped table-condensed">
-                    <caption><h1>${TopFlop} en ${Date} <small>${Indicateur}</small></h1></caption>
-                    <thead>
-                        <tr>
-                            <th>Pays</th>
-                            <th>Valeurs en ${UniteeValue}</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="country" items="${Countries}">
-                            <tr>
-                                <td><c:out value="${country.getCountryName()}"/></td>
-                                <td><c:out value="${country.getValeurIndicateurCheat()}"/></td>
+                <div class="tabbed_area">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#content_1">Resultat</a></li>
+                        <li><a data-toggle="tab" href="#content_2">Recherche</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="content_1" class="tab-pane fade in active">
+                        <c:if test="${empty Countries}">
+                            <div class="alert alert-warning" role="alert"><h3>Oops, c'est embarassant, il semblerait qu'il n'y ait pas de valeur en ${Date} pour l'indicateur : ${Indicateur}  </h3></div> 
 
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-            </c:if>
+                        </c:if>
 
+                        <c:if test="${not empty Countries}">
+                            <table class="table table-bordered table-striped table-condensed">
+                                <caption><h1>${TopFlop} en ${Date} <small>${Indicateur}</small></h1></caption>
+                                <thead>
+                                    <tr>
+                                        <th>Pays</th>
+                                        <th>Valeurs en ${UniteeValue}</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="country" items="${Countries}">
+                                        <tr>
+                                            <td><c:out value="${country.getCountryName()}"/></td>
+                                            <td><c:out value="${country.getValeurIndicateurCheat()}"/></td>
+
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </c:if>
+                    </div>
+
+                    <div id="content_2" class="tab-pane fade">
+                    </div>
+                </div>
+            </div>
         </div>
-    </body>
+
+    </div>
+</body>
 </html>
