@@ -38,6 +38,7 @@ public class ComparerPaysController {
        
         pModel.addAttribute("listePays", listePays);
         pModel.addAttribute("listeIndicateurs", listeIndicateurs);
+        pModel.addAttribute("page", "menuComparer");
        
         session.close();
        
@@ -59,6 +60,7 @@ public class ComparerPaysController {
         int nbIndic = 2;
        
         //Insertion des données basiques
+        pModel.addAttribute("page", "menuComparer");
         pModel.addAttribute("nbPays", nbPays);
         pModel.addAttribute("nbIndic", nbIndic);
         
