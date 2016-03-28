@@ -22,55 +22,55 @@
 
                 function drawChart() {
                     var data = google.visualization.arrayToDataTable([
-                    ['Année', '${indic1}'],
+                        ['Année', '${indic1}'],
             <c:forEach var="Valeur" items="${ListeValeurs1}">
-                <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">                    
-                    [${Valeur.getDate()}, ${Valeur.getValeur()}],                   
+                <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">
+                        [${Valeur.getDate()}, ${Valeur.getValeur()}],
                 </c:if>
             </c:forEach>
                     ]);
-                      var data1 = google.visualization.arrayToDataTable([
-                    ['Année', '${indic1}'],
+                    var data1 = google.visualization.arrayToDataTable([
+                        ['Année', '${indic2}'],
             <c:forEach var="Valeur" items="${ListeValeurs1}">
-                <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">                    
-                    [${Valeur.getDate()}, ${Valeur.getValeur()}],                   
+                <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">
+                        [${Valeur.getDate()}, ${Valeur.getValeur()}],
                 </c:if>
             </c:forEach>
                     ]);
-                      var data2 = google.visualization.arrayToDataTable([
-                    ['Année', '${indic2}'],
+                    var data2 = google.visualization.arrayToDataTable([
+                        ['Année', '${indic1}'],
             <c:forEach var="Valeur" items="${ListeValeurs2}">
-                <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">                    
-                    [${Valeur.getDate()}, ${Valeur.getValeur()}],                   
+                <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">
+                        [${Valeur.getDate()}, ${Valeur.getValeur()}],
                 </c:if>
             </c:forEach>
                     ]);
-                      var data3 = google.visualization.arrayToDataTable([
-                    ['Année', '${indic2}'],
+                    var data3 = google.visualization.arrayToDataTable([
+                        ['Année', '${indic2}'],
             <c:forEach var="Valeur" items="${ListeValeurs2}">
-                <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">                    
-                    [${Valeur.getDate()}, ${Valeur.getValeur()}],                   
+                <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">
+                        [${Valeur.getDate()}, ${Valeur.getValeur()}],
                 </c:if>
             </c:forEach>
                     ]);
-                            var options = {
-                                title: '${indic1}',
-                                curveType: 'function',
-                                legend: {position: 'bottom'}
-                            };
-                            var options2 = {
-                                title: '${indic2}',
-                                curveType: 'function',
-                                legend: {position: 'bottom'}
-                            };
+                    var options = {
+                        title: '${indic1}',
+                        curveType: 'function',
+                        legend: {position: 'bottom'}
+                    };
+                    var options2 = {
+                        title: '${indic2}',
+                        curveType: 'function',
+                        legend: {position: 'bottom'}
+                    };
 
                     var chart1 = new google.visualization.LineChart(document.getElementById('chart1'));
                     var chart2 = new google.visualization.LineChart(document.getElementById('chart2'));
                     var chart3 = new google.visualization.LineChart(document.getElementById('chart3'));
                     var chart4 = new google.visualization.LineChart(document.getElementById('chart4'));
                     chart1.draw(data, options);
-                    chart2.draw(data1, options);
-                    chart3.draw(data2, options2);
+                    chart2.draw(data1, options2);
+                    chart3.draw(data2, options);
                     chart4.draw(data3, options2);
                 }
         </script>
@@ -101,18 +101,30 @@
                             <li>Indicateur2 : ${indic2} </li>
                             <li>Erreur : ${errorCode}</li>
                         </ul>
+                        
+                        <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                                <tr>
+                            <center><th>${pays1}</th></center>
+                            <center><th>${pays2}</th></center>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <div id="chart1" style="width: 600px; height: 400px">
+                                        </div></td>
+                                    <td><div id="chart3" style="width: 600px; height: 400px">
+                                        </div></td>
+                                </tr>
+                                <tr>
+                                    <td><div id="chart2" style="width: 600px; height: 400px">
+                                        </div></td>
+                                    <td> <div id="chart4" style="width: 600px; height: 400px">
+                                        </div> </td>
+                                <tr>
+                            </tbody>
+                        </table>
 
-                        <div id="chart1" style="width: 900px; height: 500px">
-                        </div>
-                        <br>
-                        <div id="chart2" style="width: 900px; height: 500px">
-                        </div>
-                            <br>                       
-                        <div id="chart3" style="width: 900px; height: 500px">
-                        </div>
-                            <br>
-                        <div id="chart4" style="width: 900px; height: 500px">
-                        </div>
                     </div>
                     <div id="content_2" class="tab-pane fade">
                         <center><h1>Menu de la comparaison</h1></center>
