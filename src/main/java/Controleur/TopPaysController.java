@@ -156,6 +156,15 @@ public class TopPaysController {
         String unite= indicateur.substring(indicateur.indexOf("("));
        pmodel.addAttribute("UniteeValue",unite);
        
+       SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        // renvoie la liste des indicateurs possibles
+        List<Indicateur> indic = session.createQuery("from Indicateur").list();
+        session.close();
+        pmodel.addAttribute("ListeIndicateur", indic);
+       
        return "TopFlop2";
 
         }
