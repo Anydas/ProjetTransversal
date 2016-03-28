@@ -85,33 +85,33 @@
                             <div class="form-group">
                                 <p>Pays 1 :</p>
                                 <SELECT name="pays1" id="pays1" class="form-control">
-                                     <option value=${pays1} selected=${pays1}>${pays1}</option>
+
                                     <c:forEach var="pays" items="${listePays}">
                                         <c:choose>
                                             <c:when test="${pays.getCountryName().equals(pays1)}">
-
-                                            </c:when>
+                                                <OPTION selected=${pays.getCountryName()}><c:out value="${pays.getCountryName()}"/></option>
+                                                </c:when>
 
                                             <c:otherwise>
-                                                 <OPTION><c:out value="${pays.getCountryName()}"/>
+                                                <OPTION><c:out value="${pays.getCountryName()}"/>
                                                 </c:otherwise>
                                             </c:choose>
-                                       
+
                                         </c:forEach>
                                 </SELECT>
                             </div>
                             <div class="form-group">
                                 <p>Pays 2 :</p>
                                 <SELECT name="pays2" id="pays2" class="form-control">
-                                     <option value=${pays2} selected=${pays2}>${pays2}</option>
+
                                     <c:forEach var="pays" items="${listePays}">
                                         <c:choose>
                                             <c:when test="${pays.getCountryName().equals(pays2)}">
-
-                                            </c:when>
+                                                <OPTION selected=${pays.getCountryName()}><c:out value="${pays.getCountryName()}"/></option>
+                                                </c:when>
 
                                             <c:otherwise>
-                                                 <OPTION><c:out value="${pays.getCountryName()}"/>
+                                                <OPTION><c:out value="${pays.getCountryName()}"/>
                                                 </c:otherwise>
                                             </c:choose>
                                         </c:forEach>
@@ -119,31 +119,31 @@
                             </div>
                             <p>Pays 3 :</p>
                             <SELECT name="pays3" id="pays3" class="form-control">
-                                 <option value=${pays3} selected=${pays3}>${pays3}</option>
-                                <c:forEach var="pays" items="${listePays}">
-                                     <c:choose>
-                                            <c:when test="${pays.getCountryName().equals(pays3)}">
 
+                                <c:forEach var="pays" items="${listePays}">
+                                    <c:choose>
+                                        <c:when test="${pays.getCountryName().equals(pays3)}">
+                                            <OPTION selected=${pays.getCountryName()}><c:out value="${pays.getCountryName()}"/></option>
                                             </c:when>
 
-                                            <c:otherwise>
-                                                 <OPTION><c:out value="${pays.getCountryName()}"/>
-                                                </c:otherwise>
-                                            </c:choose>
+                                        <c:otherwise>
+                                            <OPTION><c:out value="${pays.getCountryName()}"/>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </c:forEach>
                             </SELECT>
                             <div class="form-group">
                                 <p>Indicateur 1 :</p>
                                 <SELECT name="indicateur1" id="indicateur1" class="form-control">
-                                    <option value=${indic1} selected=${indic1}>${indic1}</option>
-                                    <c:forEach var="indic" items="${listeIndicateurs}">
-                                       <c:choose>
-                                            <c:when test="${indic.getIndicatorName().equals(indic1)}">
 
-                                            </c:when>
+                                    <c:forEach var="indic" items="${listeIndicateurs}">
+                                        <c:choose>
+                                            <c:when test="${indic.getIndicatorName().equals(indic1)}">
+                                                <OPTION selected=${indic.getIndicatorName()}><c:out value="${indic.getIndicatorName()}"/></option>
+                                                </c:when>
 
                                             <c:otherwise>
-                                                 <OPTION><c:out value="${indic.getIndicatorName()}"/>
+                                                <OPTION><c:out value="${indic.getIndicatorName()}"/>
                                                 </c:otherwise>
                                             </c:choose>
                                         </c:forEach>
@@ -152,15 +152,15 @@
                             <div class="form-group">
                                 <p>Indicateur 2 :</p>
                                 <SELECT name="indicateur2" id="indicateur2" class="form-control">
-                                    <option value=${indic2} selected=${indic2}>${indic2}</option>
-                                    <c:forEach var="indic" items="${listeIndicateurs}">
-                                       <c:choose>
-                                            <c:when test="${indic.getIndicatorName().equals(indic2)}">
 
-                                            </c:when>
+                                    <c:forEach var="indic" items="${listeIndicateurs}">
+                                        <c:choose>
+                                            <c:when test="${indic.getIndicatorName().equals(indic2)}">
+                                                <OPTION selected=${indic.getIndicatorName()}><c:out value="${indic.getIndicatorName()}"/></option>
+                                                </c:when>
 
                                             <c:otherwise>
-                                                 <OPTION><c:out value="${indic.getIndicatorName()}"/>
+                                                <OPTION><c:out value="${indic.getIndicatorName()}"/>
                                                 </c:otherwise>
                                             </c:choose>
                                         </c:forEach>
@@ -168,17 +168,17 @@
                             </div>
                             <p>Indicateur 3 :</p>
                             <SELECT name="indicateur3" id="indicateur3" class="form-control">
-                                <option value=${indic3} selected=${indic3}>${indic3}</option>
-                                <c:forEach var="indic" items="${listeIndicateurs}">
-                                   <c:choose>
-                                            <c:when test="${indic.getIndicatorName().equals(indic3)}">
 
+                                <c:forEach var="indic" items="${listeIndicateurs}">
+                                    <c:choose>
+                                        <c:when test="${indic.getIndicatorName().equals(indic3)}">
+                                            <OPTION selected=${indic.getIndicatorName()}><c:out value="${indic.getIndicatorName()}"/></option>
                                             </c:when>
 
-                                            <c:otherwise>
-                                                 <OPTION><c:out value="${indic.getIndicatorName()}"/>
-                                                </c:otherwise>
-                                            </c:choose>
+                                        <c:otherwise>
+                                            <OPTION><c:out value="${indic.getIndicatorName()}"/>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </c:forEach>
                             </SELECT>
                             <p>Période :</p>
