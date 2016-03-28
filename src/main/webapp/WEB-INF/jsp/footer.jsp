@@ -15,10 +15,11 @@
             <div id="footer">
                 <div id="footer-sousdiv" >
 
-                    <img src="resources/Image/Facebook.png" alt="Facebook" >
-                    <img src="resources/Image/Twitter.png" alt="Twiter" >
-                    <img src="resources/Image/website.png" alt="Website" >
-
+                    <a href= "https://www.facebook.com/Banquemondiale/?ref=ts&fref=ts"><img src="resources/Image/Facebook.png"  alt="Facebook" ></a>
+                    <a href= "https://twitter.com/Banquemondiale"><img src="resources/Image/Twitter.png" alt="Twiter" ></a>
+                    <a href= "http://www.banquemondiale.org/"><img src="resources/Image/website.png" alt="Website" ></a>
+                    <a href= "https://www.linkedin.com/company/the-world-bank"><img src="resources/Image/Linkedin.png" alt="Website" ></a>
+                    <a href= "https://www.youtube.com/user/WorldBank/featured"><img src="resources/Image/YouTube.png" alt="Website" ></a>
                 </div>
             </div>
         </center>

@@ -19,7 +19,7 @@
         <link href="${bootCSS}" rel="stylesheet" />
         <link href="${mainCSS}" rel="stylesheet" />
         <jsp:include page="Menu.jsp" ></jsp:include>  
-            <title>JSP Page</title>
+            <title>Similarité</title>
         </head>
         <body>
              <div id="wrap">
