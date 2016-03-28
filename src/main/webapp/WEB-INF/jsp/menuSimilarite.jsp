@@ -17,11 +17,13 @@
         <spring:url value="/resources/css/bootstrap.css" var="bootCSS" />
 
         <link href="${bootCSS}" rel="stylesheet" />
-<!--         <link href="${mainCSS}" rel="stylesheet" />-->
+        <link href="${mainCSS}" rel="stylesheet" />
         <jsp:include page="Menu.jsp" ></jsp:include>  
             <title>JSP Page</title>
         </head>
         <body>
+             <div id="wrap">
+            <div class="container">
         <title>Similarité</title>
         <br>
         <br>
@@ -51,7 +53,7 @@
                     <OPTION><c:out value="${pays.getCountryName()}"/>
                     </c:forEach>
             </SELECT>
-            </div>   
+              
 
 
 
@@ -79,7 +81,7 @@
                     <OPTION><c:out value="${indic.getIndicatorName()}"/>
                     </c:forEach>
             </SELECT>
-            </div>
+            
 
             <p>Période :</p>
             <div class="form-group">
@@ -91,6 +93,8 @@
             <input type="submit" value="Lancer la recherche" class="btn btn-success">
 
         </form> 
-
+            </div>
+                  </div>
+         <jsp:include page="footer.jsp" ></jsp:include>
     </body>
 </html>

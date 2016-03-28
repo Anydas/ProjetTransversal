@@ -17,12 +17,14 @@
         <spring:url value="/resources/css/bootstrap.css" var="bootCSS" />
 
         <link href="${bootCSS}" rel="stylesheet" />
-<!--         <link href="${mainCSS}" rel="stylesheet" />-->
+        <link href="${mainCSS}" rel="stylesheet" /> 
         <jsp:include page="Menu.jsp" ></jsp:include>  
         
         <title>JSP Page</title>
     </head>
     <body>
+         <div id="wrap">
+         <div class="container">
         <h1>Hello World!</h1>
         
         
@@ -64,5 +66,8 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+                     </div>
+         <jsp:include page="footer.jsp" ></jsp:include>
     </body>
 </html>

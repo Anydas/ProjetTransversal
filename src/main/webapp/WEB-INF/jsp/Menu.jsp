@@ -20,8 +20,9 @@
      <ul class="nav navbar-nav">
         <li> <a href="./">Index</a> </li>
         <li> <a href="./menuComparer">Comparaison</a> </li>
-        <li> <a href="./TopFlop">Top & Flop</a> </li>
+        <li> <a href="./menuSimilarite">Similarité</a> </li>        
         <li> <a href="./listepays">Listes des pays</a> </li>
+        <li> <a href="./TopFlop">Top & Flop</a> </li>
       </ul>
     </div>
   </nav>
