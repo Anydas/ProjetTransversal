@@ -209,7 +209,8 @@ public class ComparerPaysController {
         pModel.addAttribute("ListeValeurs2", listeValeurs2triee);
         pModel.addAttribute("listePays", listePay);
         pModel.addAttribute("listeIndicateurs", listeIndicateur);
-        pModel.addAttribute("Valeurs", listeValeurstriee);
+        pModel.addAttribute("Valeurs1", listeValeurstriee);
+        pModel.addAttribute("Valeurs2", listeValeurs2triee);
         pModel.addAttribute("page", "menuComparer");
         pModel.addAttribute("errorCode", erreur);
         session.close();

@@ -15,64 +15,105 @@
         <jsp:include page="Menu.jsp" ></jsp:include>
 
             <title>Comparer des Pays</title>
-                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
- 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
- 
-          ['Année', '${Valeur.getIndicatorCode()}'],
-          <c:forEach var="Valeur" items="${ListeValeurs1}">
-          [${Valeur.getDate()},  ${Valeur.getValeur()}],
-          </c:forEach>  
- 
-        ]);
- 
- 
-        var options = {
-          title: '${Valeur.getIndicatorCode()}',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
- 
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
- 
-        chart.draw(data, options);
-      }
-    </script>
-        </head>
-        <body>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                google.charts.load('current', {'packages': ['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
 
-            <br>
-            <br>
-            <div class="container">
+                function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                    ['Année', '${indic1}'],
+            <c:forEach var="Valeur" items="${ListeValeurs1}">
+                <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">                    
+                    [${Valeur.getDate()}, ${Valeur.getValeur()}],                   
+                </c:if>
+            </c:forEach>
+                    ]);
+                      var data1 = google.visualization.arrayToDataTable([
+                    ['Année', '${indic1}'],
+            <c:forEach var="Valeur" items="${ListeValeurs1}">
+                <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">                    
+                    [${Valeur.getDate()}, ${Valeur.getValeur()}],                   
+                </c:if>
+            </c:forEach>
+                    ]);
+                      var data2 = google.visualization.arrayToDataTable([
+                    ['Année', '${indic2}'],
+            <c:forEach var="Valeur" items="${ListeValeurs2}">
+                <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">                    
+                    [${Valeur.getDate()}, ${Valeur.getValeur()}],                   
+                </c:if>
+            </c:forEach>
+                    ]);
+                      var data3 = google.visualization.arrayToDataTable([
+                    ['Année', '${indic2}'],
+            <c:forEach var="Valeur" items="${ListeValeurs2}">
+                <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">                    
+                    [${Valeur.getDate()}, ${Valeur.getValeur()}],                   
+                </c:if>
+            </c:forEach>
+                    ]);
+                            var options = {
+                                title: '${indic1}',
+                                curveType: 'function',
+                                legend: {position: 'bottom'}
+                            };
+                            var options2 = {
+                                title: '${indic2}',
+                                curveType: 'function',
+                                legend: {position: 'bottom'}
+                            };
 
-                <div class="tabbed_area">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#content_1">Resultat</a></li>
-                        <li><a data-toggle="tab" href="#content_2">Recherche</a></li>
-                        <li><a data-toggle="tab" href="#content_3">Tableau pays 1, indicateur 1</a></li>
-                        <li><a data-toggle="tab" href="#content_4">Tableau pays 1, indicateur 2</a></li>
-                        <li><a data-toggle="tab" href="#content_5">Tableau pays 2, indicateur 1</a></li>
-                        <li><a data-toggle="tab" href="#content_6">Tableau pays 2, indicateur 2</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="content_1" class="tab-pane fade in active">
-                            <center><h1>Resultat de la comparaison</h1></center>
-                            <ul>
-                                <li>Nombre de Pays : ${nbPays} |  Nombre d'indicateurs : ${nbIndic}</li>
+                    var chart1 = new google.visualization.LineChart(document.getElementById('chart1'));
+                    var chart2 = new google.visualization.LineChart(document.getElementById('chart2'));
+                    var chart3 = new google.visualization.LineChart(document.getElementById('chart3'));
+                    var chart4 = new google.visualization.LineChart(document.getElementById('chart4'));
+                    chart1.draw(data, options);
+                    chart2.draw(data1, options);
+                    chart3.draw(data2, options2);
+                    chart4.draw(data3, options2);
+                }
+        </script>
+    </head>
+    <body>
+
+        <br>
+        <br>
+        <div class="container">
+
+            <div class="tabbed_area">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#content_1">Resultat</a></li>
+                    <li><a data-toggle="tab" href="#content_2">Recherche</a></li>
+                    <li><a data-toggle="tab" href="#content_3">Tableau pays 1, indicateur 1</a></li>
+                    <li><a data-toggle="tab" href="#content_4">Tableau pays 1, indicateur 2</a></li>
+                    <li><a data-toggle="tab" href="#content_5">Tableau pays 2, indicateur 1</a></li>
+                    <li><a data-toggle="tab" href="#content_6">Tableau pays 2, indicateur 2</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="content_1" class="tab-pane fade in active">
+                        <center><h1>Resultat de la comparaison</h1></center>
+                        <ul>
+                            <li>Nombre de Pays : ${nbPays} |  Nombre d'indicateurs : ${nbIndic}</li>
                             <li>Pays 1 : ${pays1} </li>
                             <li>Pays 2 : ${pays2}  </li>
                             <li>Indicateur1 : ${indic1}  </li>
                             <li>Indicateur2 : ${indic2} </li>
                             <li>Erreur : ${errorCode}</li>
                         </ul>
-                       
-                            <div id="curve_chart" style="width: 900px; height: 500px">
-                            </div>
+
+                        <div id="chart1" style="width: 900px; height: 500px">
                         </div>
+                        <br>
+                        <div id="chart2" style="width: 900px; height: 500px">
+                        </div>
+                            <br>                       
+                        <div id="chart3" style="width: 900px; height: 500px">
+                        </div>
+                            <br>
+                        <div id="chart4" style="width: 900px; height: 500px">
+                        </div>
+                    </div>
                     <div id="content_2" class="tab-pane fade">
                         <center><h1>Menu de la comparaison</h1></center>
                         <form action="comparer" role="form">
@@ -162,15 +203,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="Valeur" items="${Valeurs}">
+                                <c:forEach var="Valeur" items="${Valeurs1}">
                                     <tr>
                                         <c:if test="${Valeur.getCountryCode().equals(pays1)}">
-                                             <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">
-                                            <td><c:out value="${Valeur.getCountryCode()}"/></td>
-                                            <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
-                                            <td><c:out value="${Valeur.getValeur()}"/></td>
-                                            <td><c:out value="${Valeur.getDate()}"/></td>
-                                        </c:if>
+                                            <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">
+                                                <td><c:out value="${Valeur.getCountryCode()}"/></td>
+                                                <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
+                                                <td><c:out value="${Valeur.getValeur()}"/></td>
+                                                <td><c:out value="${Valeur.getDate()}"/></td>
+                                            </c:if>
                                         </c:if>
                                     </tr>
                                 </c:forEach>
@@ -191,15 +232,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="Valeur" items="${Valeurs}">
+                                <c:forEach var="Valeur" items="${Valeurs1}">
                                     <tr>
                                         <c:if test="${Valeur.getCountryCode().equals(pays1)}">
-                                             <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">
-                                            <td><c:out value="${Valeur.getCountryCode()}"/></td>
-                                            <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
-                                            <td><c:out value="${Valeur.getValeur()}"/></td>
-                                            <td><c:out value="${Valeur.getDate()}"/></td>
-                                             </c:if>
+                                            <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">
+                                                <td><c:out value="${Valeur.getCountryCode()}"/></td>
+                                                <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
+                                                <td><c:out value="${Valeur.getValeur()}"/></td>
+                                                <td><c:out value="${Valeur.getDate()}"/></td>
+                                            </c:if>
                                         </c:if>
                                     </tr>
                                 </c:forEach>
@@ -217,15 +258,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="Valeur" items="${Valeurs}">
+                                <c:forEach var="Valeur" items="${Valeurs2}">
                                     <tr>
                                         <c:if test="${Valeur.getCountryCode().equals(pays2)}">
-                                             <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">
-                                            <td><c:out value="${Valeur.getCountryCode()}"/></td>
-                                            <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
-                                            <td><c:out value="${Valeur.getValeur()}"/></td>
-                                            <td><c:out value="${Valeur.getDate()}"/></td>
-                                        </c:if>
+                                            <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">
+                                                <td><c:out value="${Valeur.getCountryCode()}"/></td>
+                                                <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
+                                                <td><c:out value="${Valeur.getValeur()}"/></td>
+                                                <td><c:out value="${Valeur.getDate()}"/></td>
+                                            </c:if>
                                         </c:if>
                                     </tr>
                                 </c:forEach>
@@ -243,15 +284,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="Valeur" items="${Valeurs}">
+                                <c:forEach var="Valeur" items="${Valeurs2}">
                                     <tr>
                                         <c:if test="${Valeur.getCountryCode().equals(pays2)}">
-                                             <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">
-                                            <td><c:out value="${Valeur.getCountryCode()}"/></td>
-                                            <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
-                                            <td><c:out value="${Valeur.getValeur()}"/></td>
-                                            <td><c:out value="${Valeur.getDate()}"/></td>
-                                        </c:if>
+                                            <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">
+                                                <td><c:out value="${Valeur.getCountryCode()}"/></td>
+                                                <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
+                                                <td><c:out value="${Valeur.getValeur()}"/></td>
+                                                <td><c:out value="${Valeur.getDate()}"/></td>
+                                            </c:if>
                                         </c:if>
                                     </tr>
                                 </c:forEach>
@@ -261,8 +302,8 @@
                 </div>
             </div>
         </div>
-           
-                                
+
+
 
     </body>
 
