@@ -126,8 +126,8 @@ public class ComparerPaysController {
                     for (int k = 0 ; k < nbVal ; k++) {
                         
                         IndicateurValeur val = new IndicateurValeur((int) session.createQuery("SELECT E.Id FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')").list().get(k),
-                                                                    paysCode,
-                                                                    indicCode,
+                                                                   (String) session.createQuery("SELECT E.CountryName FROM Country E WHERE E.CountryCode='"+paysCode+"'").list().get(0),
+                                                                    (String) session.createQuery("SELECT E.IndicatorName  FROM Indicateur E WHERE E.IndicatorCode='"+indicCode+"'").list().get(0),
                                                                     (int) session.createQuery("SELECT E.Date FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')").list().get(k),
                                                                     (double) session.createQuery("SELECT E.Valeur FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')").list().get(k),
                                                                     (int) session.createQuery("SELECT E.Nbrefoisrecherche FROM IndicateurValeur E WHERE (E.CountryCode='"+paysCode+"') AND (E.IndicatorCode='"+indicCode+"')").list().get(k));

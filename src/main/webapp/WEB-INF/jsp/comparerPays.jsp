@@ -17,10 +17,30 @@
             <title>Comparer des Pays</title>
         </head>
         <body>
-
+                
             <br>
             <br>
             <div class="container">
+                
+                   <c:forEach var="Valeur" items="${Valeurs}">
+
+                        <p>${Valeur.getCountryCode()}</p>                
+                                         <p>${Valeur.getIndicatorCode()}</p>   
+                                         <p>${Valeur.getValeur()}</p>
+                                         <p>${Valeur.getDate()}</p> 
+                                        
+                                         
+                                            
+                                         
+                                  
+                                       
+                                        </c:forEach>  
+
+                
+                
+                
+                
+                
                 <div class="tabbed_area">
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#content_1">Resultat</a></li>

@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -30,10 +31,28 @@ public class IndicateurValeur {
     private double Valeur;
     @Column(name = "Nbrefoisrecherche", nullable = false, length = 11)
     private int Nbrefoisrecherche;
-
+ 
      public IndicateurValeur(){}
-    
-    public IndicateurValeur(int Id, String Country_Code, String Indicator_Code, int Date, double Valeur, int Nbrefoisrecherche) {
+
+    public String getCountryCode() {
+        return CountryCode;
+    }
+
+    public void setCountryCode(String CountryCode) {
+        this.CountryCode = CountryCode;
+    }
+
+    public String getIndicatorCode() {
+        return IndicatorCode;
+    }
+
+    public void setIndicatorCode(String IndicatorCode) {
+        this.IndicatorCode = IndicatorCode;
+    }
+
+
+ 
+    public IndicateurValeur(int Id, String Country_Code, String Indicator_Code, int Date, double Valeur, int Nbrefoisrecherche){
         this.Id = Id;
         this.CountryCode = Country_Code;
         this.IndicatorCode = Indicator_Code;
