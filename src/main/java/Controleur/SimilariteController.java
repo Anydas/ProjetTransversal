@@ -187,19 +187,40 @@ public class SimilariteController {
         return valeur_pays;
     }
     
-    public static double plus_grande_difference (double[]valeur)
+public static double plus_grande_difference (double[]valeur)
     {
-        double max = valeur[0];
-        double min = valeur[0];
+        double max = 0;
+        double min = 0;
+        //Probleme de NaN => Pansement
+        for(int j=0;j<valeur.length;j++)
+        {
+            if(Double.isNaN(valeur[j]))
+            {
+            }
+            else
+            {
+                max = valeur[j];
+                min = valeur[j];
+            }
+        }
         for(int i=0;i<valeur.length;i++)
         {
-            if(valeur[i]>max)
+            //Exclusion des NaN
+            if(Double.isNaN(valeur[i]))
+            {  
+            }
+            else
             {
+                 if(valeur[i]>max)
+            {
+                //attribution valeur max
                 max = valeur[i];
             }
              if(valeur[i]<min)
             {
+                //attribution valeur min
                 min = valeur[i];
+            }
             }
         }
         double difference = max -min;
