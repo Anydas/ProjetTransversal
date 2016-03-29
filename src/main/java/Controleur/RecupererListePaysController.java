@@ -114,12 +114,7 @@ public class RecupererListePaysController {
             }
         }
 
-        for (int i = 0; i < abcde.size(); i++) {
-            System.out.println(abcde.get(i).getCountryName());
-        }
-        for (int i = 0; i < listePays.size(); i++) {
-            System.out.println(listePays.get(i).getCountryName());
-        }
+   
 
         pModel.addAttribute("listePays", listePays);
         pModel.addAttribute("abcde", abcde);
