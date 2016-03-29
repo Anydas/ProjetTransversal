@@ -25,7 +25,7 @@
         <br>
    <div id="wrap">
 <div class="container">
-    <caption><h1>Menu Top & Flop</h1></caption>
+    <center><caption><h1>Top & Flop</h1></caption></center>
     <form action="TopPaysController" role="form">
         Choisir un indicateur :
         <div class="form-group">
