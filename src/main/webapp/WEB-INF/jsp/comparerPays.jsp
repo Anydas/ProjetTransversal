@@ -214,13 +214,12 @@
 
                     </div>
                     <div id="content_3" class="tab-pane fade">
-                         <center><h1>Pays 1, indicateur 1</h1></center>
+                         <center><h1>${pays1}, ${indic1}</h1></center>
                          
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
                                 <tr>
-                                    <th>Pays</th>
-                                    <th>Indicateur</th>
+                                   
                                     <th>Valeur</th>
                                     <th>Année</th>
                                 </tr>
@@ -230,8 +229,7 @@
                                     <tr>
                                         <c:if test="${Valeur.getCountryCode().equals(pays1)}">
                                             <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">
-                                                <td><c:out value="${Valeur.getCountryCode()}"/></td>
-                                                <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
+                                               
                                                 <td><c:out value="${Valeur.getValeur()}"/></td>
                                                 <td><c:out value="${Valeur.getDate()}"/></td>
                                             </c:if>
@@ -245,12 +243,11 @@
 
                     </div>
                     <div id="content_4" class="tab-pane fade">
-                         <center><h1>Pays 1, indicateur 2</h1></center>
+                         <center><h1>${pays1}, ${indic2}</h1></center>
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
                                 <tr>
-                                    <th>Pays</th>
-                                    <th>Indicateur</th>
+                                   
                                     <th>Valeur</th>
                                     <th>Année</th>
                                 </tr>
@@ -260,8 +257,7 @@
                                     <tr>
                                         <c:if test="${Valeur.getCountryCode().equals(pays1)}">
                                             <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">
-                                                <td><c:out value="${Valeur.getCountryCode()}"/></td>
-                                                <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
+                                            
                                                 <td><c:out value="${Valeur.getValeur()}"/></td>
                                                 <td><c:out value="${Valeur.getDate()}"/></td>
                                             </c:if>
@@ -272,12 +268,11 @@
                         </table>
                     </div>
                     <div id="content_5" class="tab-pane fade">
-                         <center><h1>Pays 2, indicateur 1</h1></center>
+                         <center><h1>${pays2}, ${indic1}</h1></center>
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
                                 <tr>
-                                    <th>Pays</th>
-                                    <th>Indicateur</th>
+                                  
                                     <th>Valeur</th>
                                     <th>Année</th>
                                 </tr>
@@ -287,8 +282,7 @@
                                     <tr>
                                         <c:if test="${Valeur.getCountryCode().equals(pays2)}">
                                             <c:if test="${Valeur.getIndicatorCode().equals(indic1)}">
-                                                <td><c:out value="${Valeur.getCountryCode()}"/></td>
-                                                <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
+                                             
                                                 <td><c:out value="${Valeur.getValeur()}"/></td>
                                                 <td><c:out value="${Valeur.getDate()}"/></td>
                                             </c:if>
@@ -299,12 +293,11 @@
                         </table>
                     </div>
                     <div id="content_6" class="tab-pane fade">
-                         <center><h1>Pays 2, indicateur 2</h1></center>
+                         <center><h1>${pays1}, ${indic2}</h1></center>
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
                                 <tr>
-                                    <th>Pays</th>
-                                    <th>Indicateur</th>
+                                  
                                     <th>Valeur</th>
                                     <th>Année</th>
                                 </tr>
@@ -314,8 +307,7 @@
                                     <tr>
                                         <c:if test="${Valeur.getCountryCode().equals(pays2)}">
                                             <c:if test="${Valeur.getIndicatorCode().equals(indic2)}">
-                                                <td><c:out value="${Valeur.getCountryCode()}"/></td>
-                                                <td><c:out value="${Valeur.getIndicatorCode()}"/></td>
+                                        
                                                 <td><c:out value="${Valeur.getValeur()}"/></td>
                                                 <td><c:out value="${Valeur.getDate()}"/></td>
                                             </c:if>
