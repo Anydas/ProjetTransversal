@@ -37,20 +37,38 @@
                     </ul>
                     <div class="tab-content">
                         <div id="content_1" class="tab-pane fade in active">
-                             <center><h1>Resultat de la similarité</h1></center>
+                             <center><h1>Résultat de la similarité</h1></center>
                             <table class="table table-bordered table-striped table-condensed">
-                                L'indice de Gover est calculé par apport à ces trois indices :
-                                Plus l'indice est grand, plus les pays se ressemblent !
+                                                                                                </br>
 
-                                
+                                <div class="alert alert-info">
+                                    L'indice de Gower calcule la similarité entre deux pays par rapport aux trois indicateurs donnés.
+                                    Il divise la valeur absolue de la différence entre deux pays donnés sur l'indicateur, par la plus grande différence entre toutes les valeurs de cet indicateur.
+                                    <br> <br>
+                                    En l'absence de données, un " - " est affiché.
+                                </div>			
+                               
                                 <ul>
-                            <li>Pays 1 : ${pays1}  </li>
-                            <li>Pays 2 : ${pays2}  </li>
-                            <li>Pays 3 : ${pays3}  </li>
-                            <li>Indicateur1 : ${indic1}  </li>
-                            <li>Indicateur2 : ${indic2}  </li>
-                            <li>Indicateur3 : ${indic3}  </li>
-                            </ul>
+                            <li class="list-group-item" >
+			<span class="label label-default">Pays 1 :</span> ${pays1}
+			</li>
+                              <li class="list-group-item" >
+			<span class="label label-default">Pays 2 :</span> ${pays2}
+			</li>
+                        <li class="list-group-item" >
+			<span class="label label-default">Pays 3 :</span> ${pays3}
+			</li>
+                        <li class="list-group-item" >
+			<span class="label label-default">Indicateur 1 :</span> ${indic1}
+			</li>
+                        <li class="list-group-item" >
+			<span class="label label-default">Indicateur 2 :</span> ${indic2}
+			</li>
+                         <li class="list-group-item" >
+			<span class="label label-default">Indicateur 3 :</span> ${indic3}
+			</li>
+                                                        </ul>
+
                             <br>
                               
                             

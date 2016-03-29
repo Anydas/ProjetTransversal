@@ -33,7 +33,7 @@
                         </c:if>
 
                         <c:if test="${not empty Countries}">
-                            <h1>Resultat du ${TopFlop}</h1>
+                            <center><h1>Résultat du ${TopFlop}</h1></center>
                             
                             <table class="table table-bordered table-striped table-condensed">
                                 <caption><h1>${TopFlop} en ${Date} <small>${Indicateur}</small></h1></caption>
