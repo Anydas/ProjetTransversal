@@ -83,7 +83,7 @@
 
             <div class="tabbed_area">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#content_1">Resultat</a></li>
+                    <li class="active"><a data-toggle="tab" href="#content_1">Résultat</a></li>
                     <li><a data-toggle="tab" href="#content_2">Nouvelle recherche</a></li>
                     <li><a data-toggle="tab" href="#content_3">Tableau pays 1, indicateur 1</a></li>
                     <li><a data-toggle="tab" href="#content_4">Tableau pays 1, indicateur 2</a></li>
@@ -92,14 +92,23 @@
                 </ul>
                 <div class="tab-content">
                     <div id="content_1" class="tab-pane fade in active">
-                        <center><h1>Resultat de la comparaison</h1></center>
+                        <center><h1>Résultat de la comparaison</h1></center>
+                        
                         <ul>
-                            <li>Nombre de Pays : ${nbPays} |  Nombre d'indicateurs : ${nbIndic}</li>
-                            <li>Pays 1 : ${pays1} </li>
-                            <li>Pays 2 : ${pays2}  </li>
-                            <li>Indicateur1 : ${indic1}  </li>
-                            <li>Indicateur2 : ${indic2} </li>
-                            <li>Erreur : ${errorCode}</li>
+                            
+                         <li class="list-group-item" >
+			<span class="label label-default">Pays 1 :</span> ${pays1}
+			</li>
+                        <li class="list-group-item" >
+			<span class="label label-default">Pays 2 :</span> ${pays2}
+			</li>
+                        <li class="list-group-item" >
+			<span class="label label-default">Indicateur 1 :</span> ${indic1}
+			</li>
+                        <li class="list-group-item" >
+			<span class="label label-default">Indicateur 2 :</span> ${indic2}
+			</li>
+                     
                         </ul>
                         
                         <table class="table table-bordered table-striped table-condensed">
@@ -205,6 +214,8 @@
 
                     </div>
                     <div id="content_3" class="tab-pane fade">
+                         <center><h1>Pays 1, indicateur 1</h1></center>
+                         
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
                                 <tr>
@@ -234,6 +245,7 @@
 
                     </div>
                     <div id="content_4" class="tab-pane fade">
+                         <center><h1>Pays 1, indicateur 2</h1></center>
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
                                 <tr>
@@ -260,6 +272,7 @@
                         </table>
                     </div>
                     <div id="content_5" class="tab-pane fade">
+                         <center><h1>Pays 2, indicateur 1</h1></center>
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
                                 <tr>
@@ -286,6 +299,7 @@
                         </table>
                     </div>
                     <div id="content_6" class="tab-pane fade">
+                         <center><h1>Pays 2, indicateur 2</h1></center>
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
                                 <tr>

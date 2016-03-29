@@ -5,7 +5,8 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <%@ page language="java" pageEncoding="UTF-8" contentType="text/html;charset=UTF-8"%>
+<%@ page language="java" isELIgnored="false"
+         pageEncoding="ISO-8859-1" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
@@ -61,54 +62,20 @@
       <div class="row">
         <div class="col-lg-4">
           <img class="img-circle" src="resources/Image/sante.jpg" alt="Generic placeholder image" width="140" height="140">
-          <h2>Santé</h2>
-          <p>Les personnes pauvres n’ont pas les moyens de se sortir de la 
-              pauvreté. Accroître leur productivité en investissant dans
-              leur éducation et dans leur santé est souvent la meilleure manière
-              d’améliorer leur bien-être. Le secteur public est le principal 
-              fournisseur de services de soins de santé dans les pays en développement.
-              Pour réduire les inégalités, bon nombre de pays mettent l’accent sur
-              les soins de santé primaires, notamment l’immunisation, la 
-              fourniture d’assainissement, l’accès à de l’eau potable et des
-              initiatives pour une maternité sans risques. Les données de cette 
-              page portent sur les systèmes de santé, la qualité et la 
-              couverture de la prévention des maladies, la santé reproductive,
-              la nutrition et la dynamique des populations. Les données 
-              sont fournies par la Division de la population des Nations Unies,
-              l’Organisation mondiale de la Santé, le Fonds des Nations Unies pour
-              l’enfance, le Programme commun des Nations Unies sur le VIH/SIDA 
-              et diverses autres sources.</p>
+          <h2>Sant�</h2>
+          <p>La sant� joue un r�le cl� dans l'augmentation du niveau de vie des habitants. En mettant l'accent sur les soins de sant� primaires (tels que les vaccins, assainissement des eaux et acc�s � celle-ci ...), bons nombre de pays en difficult� tentent de faire dispara�tre les in�galit�s.</p>
           
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="resources/Image/education.gif" alt="Generic placeholder image" width="140" height="140">
           <h2>Education</h2>
-          <p>L’éducation est l’un des instruments les plus puissants qui existent
-              pour réduire la pauvreté et les inégalités et elle pose les bases 
-              d’une croissance économique soutenue. La Banque mondiale compile 
-              les données sur les facteurs de production, la participation,
-              l’efficience et les résultats dans le domaine de l’éducation.
-              Les données sur l’éducation sont compilées par l’Institut de 
-              statistiques de l’Organisation des Nations Unies pour l’éducation,
-              la science et la culture (UNESCO) et proviennent de réponses 
-              officielles à des sondages et de rapports fournis par les autorités
-              en matière d’éducation de chaque pays.</p>
+          <p>Dans un deuxi�me temps, l'�ducation est un moteur puissant de la croissance �conomique. En effet, on remarque que les pays am�liorant leur syst�me �ducatif augmentent sur le long terme une croissance �conomique. Mais de nombreuses in�galit�s subsistent, notamment dans l'acc�s des filles dans les pays en voie de d�veloppement.</p>
           
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="resources/Image/technologie.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Technologie</h2>
-          <p>L’innovation technologique, souvent stimulée par les pouvoirs 
-             publics, est l’élément moteur de la croissance industrielle et aide
-             à améliorer les niveaux de vie. Les données présentées ici visent à
-             mettre en lumière l’infrastructure technologique des pays : recherche
-             et développement, articles de journaux scientifiques et techniques, 
-             exportations de haute technologie, redevances et droits de licence, 
-             et brevets et marques déposées. Les sources proviennent notamment de
-             l’Institut de statistique de l’UNESCO, du conseil américain National 
-             Science Board, de la Division de statistique de l’ONU, du Fonds 
-             Monétaire international et de l'Organisation mondiale de la 
-             propriété intellectuelle.</p>
+          <p>Enfin, l'innovation technologique, souvent stimul�e par les pouvoirs publics, est l'�l�ment moteur de la croissance industrielle et aide � am�liorer les niveaux de vie. En corr�lation avec le secteur de la sant� et de l'�ducation, on peut voir comment ces trois domaines sont �troitement li�s.</p>
           
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
