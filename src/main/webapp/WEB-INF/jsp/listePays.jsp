@@ -25,6 +25,10 @@
                     <th>Pays</th>
                     <th>Code</th>
                     <th>Region</th>
+                    <th>PIB</th>
+                    <th>IDH</th>
+                    <th>Population</th>
+                    <th>Superficie</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +37,10 @@
                         <td><c:out value="${country.getCountryName()}"/></td>
                         <td><c:out value="${country.getCountryCode()}"/></td>
                         <td><c:out value="${country.getRegion()}"/></td>
+                        <td><c:out value="${country.getPIB()}"/></td>
+                        <td><c:out value="${country.getIDH()}"/></td>
+                        <td><c:out value="${country.getPopulation()}"/></td>
+                        <td><c:out value="${country.getSuperficie()}"/></td>
                     </tr>
                 </c:forEach>
             </tbody>
