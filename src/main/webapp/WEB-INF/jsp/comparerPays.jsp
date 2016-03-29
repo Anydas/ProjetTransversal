@@ -84,7 +84,7 @@
             <div class="tabbed_area">
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#content_1">Resultat</a></li>
-                    <li><a data-toggle="tab" href="#content_2">Recherche</a></li>
+                    <li><a data-toggle="tab" href="#content_2">Nouvelle recherche</a></li>
                     <li><a data-toggle="tab" href="#content_3">Tableau pays 1, indicateur 1</a></li>
                     <li><a data-toggle="tab" href="#content_4">Tableau pays 1, indicateur 2</a></li>
                     <li><a data-toggle="tab" href="#content_5">Tableau pays 2, indicateur 1</a></li>

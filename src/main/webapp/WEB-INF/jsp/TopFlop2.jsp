@@ -23,7 +23,7 @@
                 <div class="tabbed_area">
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#content_1">Resultat</a></li>
-                        <li><a data-toggle="tab" href="#content_2">Recherche</a></li>
+                        <li><a data-toggle="tab" href="#content_2">Nouvelle recherche</a></li>
                     </ul>
                     <div class="tab-content">
                         <div id="content_1" class="tab-pane fade in active">
